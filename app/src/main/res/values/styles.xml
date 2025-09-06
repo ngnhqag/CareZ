@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.App.Lansui" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">@font/lansui</item>
+    </style>
+    <style name="TextAppearance.App.FromWhereYouAre" parent="@android:style/TextAppearance">
+        <item name="android:fontFamily">@font/fromwhereyouare</item>
+    </style>
+</resources>

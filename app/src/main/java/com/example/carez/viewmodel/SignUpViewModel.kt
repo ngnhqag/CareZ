@@ -1,0 +1,53 @@
+package com.example.carez.viewmodel
+
+import android.widget.Toast
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.launch
+
+class SignUpViewModel : ViewModel() {
+
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    // khởi tạo firebase
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    // khởi tạo databasefirestore
+
+    fun signUp(id: String, email:String, password:String, onResult:(Boolean,String) -> Unit){
+        //tạo constructor ( onReult 2 giá trị, 1 để kết quả, 2 để thông báo ) -> Unit là để đổi nó về 1 hàm k có gt trả về
+        viewModelScope.launch {
+            auth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        if (user != null) {
+                            saveUserToFirestore(id,email,user.uid,onResult)
+                        }
+                        else{
+                            onResult(false,task.exception?.message ?: "Đăng ký thất bại")
+                        }
+                    }
+                }
+        }
+    }
+
+    private fun saveUserToFirestore(id: String, email: String, uid: String, onResult: (Boolean, String) -> Unit) {
+        val userMap = hashMapOf(
+            "id" to id,
+            "email" to email,
+            "uid" to uid,
+        )
+        // tạo ra hashMap để sau này cần tìm kiếm thì dễ hơn
+        db.collection("user").document(uid)
+            .set(userMap)
+            //lưu userMap
+            .addOnCompleteListener {
+                onResult(true, "Đăng ký thành công")
+            }
+            .addOnFailureListener { e ->
+                onResult(false, "Lỗi lưu dữ liệu: ${e.message}")
+            }
+        // e là chuỗi mô tả lỗi mà firestore cung cấp
+    }
+}
