@@ -10,6 +10,7 @@ import com.example.carez.viewmodel.SignUpViewModel
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: SignUpBinding
     private val signUpViewModel: SignUpViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = SignUpBinding.inflate(layoutInflater)
