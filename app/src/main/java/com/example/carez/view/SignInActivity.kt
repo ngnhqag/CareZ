@@ -1,26 +1,23 @@
 package com.example.carez.view
 
-import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.carez.databinding.SignInBinding
-import com.example.carez.viewmodel.SignInViewModel
-import androidx.activity.viewModels
 import android.content.Intent
-import android.util.Log
+import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.carez.auth.GoogleAuthClient
-import com.example.carez.view.SignUpActivity
+import com.example.carez.databinding.ActivitySignInBinding
+import com.example.carez.viewmodel.SignInViewModel
 import kotlinx.coroutines.launch
 
 class SignInActivity : AppCompatActivity() {
-    private lateinit var binding: SignInBinding
+    private lateinit var binding: ActivitySignInBinding
     private val signInViewModel: SignInViewModel by viewModels()
     private val googleAuthClient = GoogleAuthClient(this@SignInActivity)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=SignInBinding.inflate(layoutInflater)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         handleSignIn()
         navigateToSignUp()
@@ -34,11 +31,13 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun handleSignIn() {
-        binding.btnSignIn.setOnClickListener{
+        binding.btnGoogle.setOnClickListener{
             lifecycleScope.launch {
-                googleAuthClient.signIn()
+                val isSuccess = googleAuthClient.signIn()
+                if (isSuccess) {
+                    MainActivity.onStart(this@SignInActivity)
+                }
             }
         }
     }
-
 }

@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.carez.databinding.SignUpBinding
+import com.example.carez.databinding.ActivitySignUpBinding
 import com.example.carez.viewmodel.SignUpViewModel
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var binding: SignUpBinding
+    private lateinit var binding: ActivitySignUpBinding
     private val signUpViewModel: SignUpViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = SignUpBinding.inflate(layoutInflater)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnsignUp.setOnClickListener {
             val id = binding.edtid.text.toString()
