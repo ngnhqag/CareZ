@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9FAFB"
+    android:background="@color/white"
     tools:context=".view.SignUpActivity">
 
     <!-- Tiêu đề trên cùng -->
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Care Your Health"
-        android:textColor="#4A3DA8"
+        android:textColor="@color/primary"
         android:textSize="22sp"
         android:fontFamily="@font/poppins_semibold"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Đăng Ký"
-        android:textColor="#4A3DA8"
+        android:textColor="@color/primary"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đã có tài khoản? Đăng nhập"
-        android:textColor="#072BF2"
+        android:textColor="@color/primary"
         android:textSize="14sp"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintTop_toBottomOf="@id/btnsignUp"
