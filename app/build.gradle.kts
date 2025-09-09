@@ -8,10 +8,9 @@ android {
     namespace = "com.example.carez"
     compileSdk = 36
 
-    viewBinding {
-        enable = true
+    buildFeatures {
+        viewBinding = true
     }
-
     defaultConfig {
         applicationId = "com.example.carez"
         minSdk = 26 // Hỗ trợ adaptive icon
