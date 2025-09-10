@@ -17,6 +17,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun checkSigned() {
-        val isSigned =
+//        val isSigned =
     }
 }
