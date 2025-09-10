@@ -6,11 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 class SignInViewModel:ViewModel() {
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
-    // khởi tạo firebase
     private val _signInState = MutableLiveData<Result<String>>()
-    // khởi tạo biến để thể hiện trạng thái login
-    // nếu login lỗi thì báo lỗi, thành công thì thành công
-    // signInState tạo ra để hiển thị lên UI, muốn thay đổi thì phải qua  _signInState và qua ViewModel chứ không từ UI luôn
     val signInState: LiveData<Result<String>> = _signInState
 
     fun signIn(email:String, password:String) {

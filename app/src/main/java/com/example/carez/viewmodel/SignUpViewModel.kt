@@ -15,7 +15,7 @@ class SignUpViewModel : ViewModel() {
     // khởi tạo databasefirestore
 
     fun signUp(id: String, email:String, password:String, onResult:(Boolean,String) -> Unit){
-        //tạo constructor ( onReult 2 giá trị, 1 để kết quả, 2 để thông báo ) -> Unit là để đổi nó về 1 hàm k có gt trả về
+
         viewModelScope.launch {
             auth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener { task ->
@@ -30,6 +30,7 @@ class SignUpViewModel : ViewModel() {
                     }
                 }
         }
+
     }
 
     private fun saveUserToFirestore(id: String, email: String, uid: String, onResult: (Boolean, String) -> Unit) {
@@ -38,16 +39,14 @@ class SignUpViewModel : ViewModel() {
             "email" to email,
             "uid" to uid,
         )
-        // tạo ra hashMap để sau này cần tìm kiếm thì dễ hơn
-        db.collection("user").document(uid)
+
+        db.collection("user").document(uid)  // tạo 1 collection chứa user và collection chứa document có tên là uid
             .set(userMap)
-            //lưu userMap
             .addOnCompleteListener {
                 onResult(true, "Đăng ký thành công")
             }
             .addOnFailureListener { e ->
                 onResult(false, "Lỗi lưu dữ liệu: ${e.message}")
             }
-        // e là chuỗi mô tả lỗi mà firestore cung cấp
     }
 }
