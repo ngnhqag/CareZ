@@ -10,9 +10,7 @@ import kotlinx.coroutines.launch
 class SignUpViewModel : ViewModel() {
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
-    // khởi tạo firebase
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    // khởi tạo databasefirestore
 
     fun signUp(id: String, email:String, password:String, onResult:(Boolean,String) -> Unit){
 
@@ -42,7 +40,7 @@ class SignUpViewModel : ViewModel() {
 
         db.collection("user").document(uid)  // tạo 1 collection chứa user và collection chứa document có tên là uid
             .set(userMap)
-            .addOnCompleteListener {
+            .addOnSuccessListener {
                 onResult(true, "Đăng ký thành công")
             }
             .addOnFailureListener { e ->
