@@ -48,11 +48,17 @@ class SignInActivity : AppCompatActivity() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
                     if (state.isSignInSuccess) {
+                        //Save user infor to firestore and room
+                        saveUser()
                         navigateToMain()
                     }
                 }
             }
         }
+    }
+
+    private fun saveUser() {
+        TODO("Not yet implemented")
     }
 
     private fun navigateToMain() {
