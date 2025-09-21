@@ -1,17 +1,14 @@
-package com.example.carez.view
+package com.example.carez.view.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.carez.R
 import com.example.carez.auth.GoogleAuthClient
 import com.example.carez.databinding.ActivityMainBinding
+import com.example.carez.view.activity.SignInActivity
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         biding.btnSignOut.setOnClickListener {
             lifecycleScope.launch {
             googleAuthClient.signOut()
-                    SignInActivity.onStart(this@MainActivity)
+                    SignInActivity.Companion.onStart(this@MainActivity)
                     finish()
             }
         }

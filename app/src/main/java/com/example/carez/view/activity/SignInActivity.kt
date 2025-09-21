@@ -1,16 +1,17 @@
-package com.example.carez.view
+package com.example.carez.view.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.carez.auth.GoogleAuthClient
 import com.example.carez.databinding.ActivitySignInBinding
+import com.example.carez.view.activity.SignUpActivity
 import com.example.carez.viewmodel.SignInViewModel
 import kotlinx.coroutines.launch
-import android.widget.Toast
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
@@ -45,7 +46,7 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun navigateToSignUp() {
-            SignUpActivity.onStart(this@SignInActivity)
+            SignUpActivity.Companion.onStart(this@SignInActivity)
     }
 
     private fun handleSignIn() {
