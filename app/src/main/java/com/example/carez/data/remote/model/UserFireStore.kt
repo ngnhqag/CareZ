@@ -1,7 +1,7 @@
-package com.example.carez.domain.model
+package com.example.carez.data.remote.model
 
-data class User(
-    val id: String = "",
+data class UserFireStore(
+    val uid: String = "",
     val email: String = "",
     val name: String = "",
     val gender: String = "",
