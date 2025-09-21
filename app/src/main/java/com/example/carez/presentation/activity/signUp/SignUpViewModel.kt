@@ -1,6 +1,5 @@
-package com.example.carez.viewmodel
+package com.example.carez.presentation.activity.signUp
 
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
@@ -28,7 +27,6 @@ class SignUpViewModel : ViewModel() {
                     }
                 }
         }
-
     }
 
     private fun saveUserToFirestore(id: String, email: String, uid: String, onResult: (Boolean, String) -> Unit) {
@@ -38,7 +36,7 @@ class SignUpViewModel : ViewModel() {
             "uid" to uid,
         )
 
-        db.collection("user").document(uid)  // tạo 1 collection chứa user và collection chứa document có tên là uid
+        db.collection("user").document(id)  // tạo 1 collection chứa user và collection chứa document có tên là uid
             .set(userMap)
             .addOnSuccessListener {
                 onResult(true, "Đăng ký thành công")

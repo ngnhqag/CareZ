@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".view.activity.SignInActivity">
+    tools:context=".presentation.activity.signIn.SignInActivity">
 
     <!-- Tiêu đề chính -->
     <TextView
@@ -181,6 +181,4 @@
             android:background="@null"
             android:scaleType="fitCenter"/>
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

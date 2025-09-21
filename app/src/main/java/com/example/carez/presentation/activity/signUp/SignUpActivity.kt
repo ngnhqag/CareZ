@@ -1,13 +1,15 @@
-package com.example.carez.view.activity
+package com.example.carez.presentation.activity.signUp
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carez.databinding.ActivitySignUpBinding
-import com.example.carez.viewmodel.SignUpViewModel
+import com.example.carez.presentation.activity.signIn.SignInActivity
+import com.example.carez.presentation.activity.signUp.SignUpViewModel
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -33,15 +35,15 @@ class SignUpActivity : AppCompatActivity() {
             val passWord = binding.edtPassWord.text.toString()
             val rePassWord = binding.edtRePassWord.text.toString()
 
-            if ( id.isEmpty() || gmail.isEmpty() || passWord.isEmpty() || rePassWord.isEmpty() ) {
+            if (id.isEmpty() || gmail.isEmpty() || passWord.isEmpty() || rePassWord.isEmpty()) {
                 Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if ( passWord != rePassWord ) {
+            if (passWord != rePassWord) {
                 Toast.makeText(this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            signUpViewModel.signUp(id,gmail,passWord) { success, message ->
+            signUpViewModel.signUp(id, gmail, passWord) { success, message ->
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 if (success) {
                     navigateToSignIn()
@@ -58,7 +60,8 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun navigateToSignIn() {
-        SignInActivity.onStart(this@SignUpActivity)
+        Log.d("SignUpActivity", "Navigate to signin")
+        SignInActivity.onStart(this)
+        finish()
     }
-
 }
