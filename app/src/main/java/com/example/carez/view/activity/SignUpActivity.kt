@@ -1,4 +1,4 @@
-package com.example.carez.view
+package com.example.carez.view.activity
 
 import android.content.Context
 import android.content.Intent

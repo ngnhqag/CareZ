@@ -2,7 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("org.jetbrains.kotlin.kapt")
 }
+
 
 android {
     namespace = "com.example.carez"
@@ -25,6 +27,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 
     buildTypes {
         release {
@@ -62,4 +65,14 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //RoomDataBase
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    val room_version = "2.8.0"
+    val lifecycle_version = "2.9.3"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    kapt ("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+
 }
