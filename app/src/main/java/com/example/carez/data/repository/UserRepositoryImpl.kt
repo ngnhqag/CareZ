@@ -15,8 +15,8 @@ class UserRepositoryImpl(
         return googleAuthDataSource.isSignedIn()
     }
 
-    override suspend fun signOut() {
-        googleAuthDataSource.signOut()
+    override suspend fun signOut(activity: Activity) {
+        googleAuthDataSource.signOut(activity)
     }
 }
 

@@ -5,5 +5,5 @@ import android.app.Activity
 interface UserRepository {
     suspend fun signInWithGoogle(activity: Activity): Boolean
     fun isSignedIn(): Boolean
-    suspend fun signOut()
+    suspend fun signOut(activity: Activity)
 }
