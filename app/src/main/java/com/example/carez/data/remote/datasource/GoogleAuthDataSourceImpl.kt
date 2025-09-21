@@ -1,13 +1,15 @@
-package com.example.carez.auth
+package com.example.carez.data.remote.datasource
 
+import android.app.Activity
 import android.content.Context
 import android.util.Log
-import androidx.core.content.ContextCompat.getString
+import androidx.core.content.ContextCompat
 import androidx.credentials.ClearCredentialStateRequest
 import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
+import com.example.carez.R
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingException
@@ -15,17 +17,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.tasks.await
 import kotlin.coroutines.cancellation.CancellationException
-import  com.example.carez.R
-import kotlin.math.log
 
-class GoogleAuthClient(
+class GoogleAuthDataSourceImpl(
     private val context: Context
-) {
+) : GoogleAuthDataSource {
     private val tag = "Firebase AuthManager: "
-    private val credentialManager = CredentialManager.Companion.create(context)
     private val firebaseAuth = FirebaseAuth.getInstance()
 
-    fun isSignedIn(): Boolean {
+    override fun isSignedIn(): Boolean {
         if (firebaseAuth.currentUser != null) {
             println(tag + "already signed in")
             return true
@@ -33,11 +32,12 @@ class GoogleAuthClient(
         return false
     }
 
-    suspend fun signIn(onUiShown: () -> Unit = {}): Boolean {
+    override suspend fun signIn(activity: Activity): Boolean {
         if (isSignedIn()) return true
 
         try {
-            val result = buildCredentialRequest(onUiShown)
+            val credentialManager = CredentialManager.create(activity)
+            val result = buildCredentialRequest(activity, credentialManager)
             return handleSignIn(result)
         } catch (e: Exception) {
             if (e is CancellationException) throw e
@@ -49,9 +49,9 @@ class GoogleAuthClient(
     private suspend fun handleSignIn(result: GetCredentialResponse): Boolean {
         val credential = result.credential
 
-        if (credential is CustomCredential && credential.type == GoogleIdTokenCredential.Companion.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
+        if (credential is CustomCredential && credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
             try {
-                val tokenCredential = GoogleIdTokenCredential.Companion.createFrom(credential.data)
+                val tokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
 
                 println(tag + "name: ${tokenCredential.displayName}")
                 println(tag + "email: ${tokenCredential.id}")
@@ -71,21 +71,25 @@ class GoogleAuthClient(
         }
     }
 
-    private suspend fun buildCredentialRequest(onUiShown: () -> Unit = {}): GetCredentialResponse {
+    private suspend fun buildCredentialRequest(
+        activity: Activity,
+        credentialManager: CredentialManager
+    ): GetCredentialResponse {
         val request = GetCredentialRequest.Builder().addCredentialOption(
-            GetGoogleIdOption
-                .Builder()
+            GetGoogleIdOption.Builder()
                 .setFilterByAuthorizedAccounts(false)
-                .setServerClientId(getString(context, R.string.web_client_id))
+                .setServerClientId(ContextCompat.getString(context, R.string.web_client_id))
                 .setAutoSelectEnabled(false)
                 .build()
         ).build()
-        Log.d(tag, getString(context, R.string.web_client_id))
-        onUiShown()
-        return credentialManager.getCredential(context = context, request = request)
+
+        Log.d(tag, ContextCompat.getString(context, R.string.web_client_id))
+        return credentialManager.getCredential(context = activity, request = request)
     }
 
-    suspend fun signOut() {
+    override suspend fun signOut() {
+        // For sign out, we can use application context
+        val credentialManager = CredentialManager.create(context)
         credentialManager.clearCredentialState(ClearCredentialStateRequest())
         firebaseAuth.signOut()
     }

@@ -1,13 +1,14 @@
-package com.example.carez.view.activity
+package com.example.carez.presentation.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carez.databinding.ActivityUserInfoBinding
-import com.example.carez.view.fragment.AgeFragment
-import com.example.carez.view.fragment.GenderFragment
-import com.example.carez.view.fragment.HeightFragment
-import com.example.carez.view.fragment.NameFragment
-import com.example.carez.view.fragment.WeightFragment
+import com.example.carez.presentation.activity.main.MainActivity
+import com.example.carez.presentation.fragment.AgeFragment
+import com.example.carez.presentation.fragment.GenderFragment
+import com.example.carez.presentation.fragment.HeightFragment
+import com.example.carez.presentation.fragment.NameFragment
+import com.example.carez.presentation.fragment.WeightFragment
 
 class UserInfoActivity : AppCompatActivity() {
 

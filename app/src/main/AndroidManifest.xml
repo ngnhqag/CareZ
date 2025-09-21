@@ -4,6 +4,7 @@
     package="com.example.carez">
 
     <application
+        android:name=".di.KoinApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +16,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".view.activity.SignInActivity"
+            android:name=".presentation.activity.signIn.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,19 +25,19 @@
         </activity>
 
         <activity
-            android:name=".view.activity.SplashActivity"
+            android:name=".presentation.activity.SplashActivity"
             android:exported="false" />
 
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name=".presentation.activity.main.MainActivity"
             android:exported="false" />
 
         <activity
-            android:name=".view.activity.UserInfoActivity"
+            android:name=".presentation.activity.UserInfoActivity"
             android:exported="true" />
 
         <activity
-            android:name=".view.activity.SignUpActivity"
+            android:name=".presentation.activity.signUp.SignUpActivity"
             android:exported="true" />
     </application>
 

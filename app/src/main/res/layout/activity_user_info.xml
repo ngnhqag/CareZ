@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#14101e"
-    tools:context=".view.activity.UserInfoActivity">
+    tools:context=".presentation.activity.UserInfoActivity">
 
     <FrameLayout
         android:id="@+id/fragment_container"

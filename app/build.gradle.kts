@@ -41,10 +41,8 @@ android {
 }
 
 dependencies {
-    // Firebase BoM (đồng bộ version cho tất cả Firebase)
+    // Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
-
-    // Firebase services (không cần chỉ định version)
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
@@ -61,18 +59,14 @@ dependencies {
     implementation(libs.googleid)
     implementation(libs.androidx.activity)
 
-    // Tests
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Koin
+    implementation(libs.koin.android)
 
-    //RoomDataBase
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
-    val room_version = "2.8.0"
-    val lifecycle_version = "2.9.3"
-    implementation("androidx.room:room-runtime:$room_version")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
-    kapt ("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.jetbrains.kotlinx.coroutines.android)
 
+    // Lifecycle
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 }
