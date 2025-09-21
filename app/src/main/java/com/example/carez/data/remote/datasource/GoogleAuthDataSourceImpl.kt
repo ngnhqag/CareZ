@@ -13,14 +13,13 @@ import com.example.carez.R
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingException
+import com.google.android.play.integrity.internal.ac
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.tasks.await
 import kotlin.coroutines.cancellation.CancellationException
 
-class GoogleAuthDataSourceImpl(
-    private val context: Context
-) : GoogleAuthDataSource {
+class GoogleAuthDataSourceImpl() : GoogleAuthDataSource {
     private val tag = "Firebase AuthManager: "
     private val firebaseAuth = FirebaseAuth.getInstance()
 
@@ -78,18 +77,16 @@ class GoogleAuthDataSourceImpl(
         val request = GetCredentialRequest.Builder().addCredentialOption(
             GetGoogleIdOption.Builder()
                 .setFilterByAuthorizedAccounts(false)
-                .setServerClientId(ContextCompat.getString(context, R.string.web_client_id))
+                .setServerClientId(ContextCompat.getString(activity, R.string.web_client_id))
                 .setAutoSelectEnabled(false)
                 .build()
         ).build()
-
-        Log.d(tag, ContextCompat.getString(context, R.string.web_client_id))
         return credentialManager.getCredential(context = activity, request = request)
     }
 
-    override suspend fun signOut() {
+    override suspend fun signOut(activity: Activity) {
         // For sign out, we can use application context
-        val credentialManager = CredentialManager.create(context)
+        val credentialManager = CredentialManager.create(activity)
         credentialManager.clearCredentialState(ClearCredentialStateRequest())
         firebaseAuth.signOut()
     }
