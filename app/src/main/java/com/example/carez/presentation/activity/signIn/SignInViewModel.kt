@@ -23,6 +23,11 @@ class SignInViewModel(
 
     fun signInWithGoogle(activity: Activity) {
         viewModelScope.launch(Dispatchers.IO) {
+            _state.update { signInState ->
+                signInState.copy(
+                    isSignInSuccess = false
+                )
+            }
             val isSuccess = signInWithGoogleUseCase(activity)
             if (isSuccess) {
                 val user = User(
@@ -34,9 +39,15 @@ class SignInViewModel(
                 if (result) {
                     _state.update { signInState ->
                         signInState.copy(
-                            isSignInSuccess = isSuccess
+                            isSignInSuccess = true
                         )
                     }
+                }
+            } else {
+                _state.update { signInState ->
+                    signInState.copy(
+                        isSignInSuccess = false
+                    )
                 }
             }
         }
