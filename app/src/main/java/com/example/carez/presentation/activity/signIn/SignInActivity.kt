@@ -3,18 +3,18 @@ package com.example.carez.presentation.activity.signIn
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.carez.R
 import com.example.carez.databinding.ActivitySignInBinding
 import com.example.carez.presentation.activity.main.MainActivity
 import com.example.carez.presentation.activity.signUp.SignUpActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
@@ -47,23 +47,21 @@ class SignInActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
-                    if (state.isSignInSuccess) {
-                        //Save user infor to firestore and room
-                        saveUser()
-                        navigateToMain()
-                    }
+                    eventSignIn(state.isSignInSuccess)
+                    // Gọi hàm handle khác cũng chỉ truyền vào state đừng có ifelse gì
+                    // HandleLoginWith(state.username, state.password)
                 }
             }
         }
     }
 
-    private fun saveUser() {
-        TODO("Not yet implemented")
-    }
-
-    private fun navigateToMain() {
+    private fun eventSignIn(isLoginSuccess: Boolean) {
+        if (!isLoginSuccess) {
+            Toast.makeText(this, this.getString(R.string.login_failed), Toast.LENGTH_SHORT).show()
+        } else {
         MainActivity.onStart(this)
         finish()
+        }
     }
 
     private fun signInWithGoogle() {
