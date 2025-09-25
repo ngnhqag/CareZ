@@ -1,6 +1,7 @@
 package com.example.carez.domain.model
 
 data class User(
+    val uid: String = "",
     val id: String = "",
     val email: String = "",
     val name: String = "",

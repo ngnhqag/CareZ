@@ -12,6 +12,7 @@ import com.example.carez.data.repository.UserRepositoryImpl
 import com.example.carez.domain.repository.UserRepository
 import com.example.carez.domain.usecase.CheckSignInUseCase
 import com.example.carez.domain.usecase.InsertUserUseCase
+import com.example.carez.domain.usecase.SignInWithEmailUseCase
 import com.example.carez.domain.usecase.SignInWithGoogleUseCase
 import com.example.carez.domain.usecase.SignOutUseCase
 import com.example.carez.presentation.activity.main.MainViewModel
@@ -31,8 +32,6 @@ val appModule = module {
 
     // Database
     single { Room.databaseBuilder(get(), LocalDatabase::class.java, "carez.db").build() }
-
-    // Dao
     single { get<LocalDatabase>().userDao() }
 
     // DataSource
@@ -41,22 +40,25 @@ val appModule = module {
     single<UserRemoteDataSource> { UserRemoteDataSourceImpl(get()) }
 
     // Repository
-    single<UserRepository> {
-        UserRepositoryImpl(
-            get(),
-            get(),
-            get()
-        )
-    }
+    single<UserRepository> { UserRepositoryImpl(get(), get(), get(),get()) }
 
     // UseCase
     factory { SignInWithGoogleUseCase(get()) }
-    factory { SignOutUseCase(get()) }
-    factory { CheckSignInUseCase(get()) }
+    factory { SignInWithEmailUseCase(get()) }
     factory { InsertUserUseCase(get()) }
+    factory { CheckSignInUseCase(get()) }
+    factory { SignOutUseCase(get()) }
 
     // ViewModel
-    viewModel { SignInViewModel(get(), get(), get()) }
+    viewModel {
+        SignInViewModel(
+            signInWithGoogleUseCase = get(),
+            signInWithEmailUseCase  = get(),
+            insertUserUseCase       = get(),
+            firebaseAuth            = get()
+        )
+    }
     viewModel { MainViewModel(get()) }
     viewModel { SplashViewModel(get()) }
+
 }
