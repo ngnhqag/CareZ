@@ -19,4 +19,20 @@ class UserRemoteDataSourceImpl(
             Result.failure(e)
         }
     }
+
+    override suspend fun getUserFromFireStore(uid: String): Result<UserFireStore> {
+        return try {
+            val snapshot = firestore.collection("users")
+                .document(uid)
+                .get()
+                .await()
+
+            val remoteUser = snapshot.toObject(UserFireStore::class.java)
+                ?: return Result.failure(Exception("User not found"))
+
+            Result.success(remoteUser)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 }

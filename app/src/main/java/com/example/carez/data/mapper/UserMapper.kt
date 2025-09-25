@@ -6,6 +6,7 @@ import com.example.carez.domain.model.User
 
 fun UserEntity.toDomain(): User {
     return User(
+        uid = uid,
         id = id,
         email = email,
         name = name,
@@ -18,6 +19,7 @@ fun UserEntity.toDomain(): User {
     
 fun User.toEntity(): UserEntity {
     return UserEntity(
+        uid = uid,
         id = id,
         email = email,
         name = name,
@@ -30,7 +32,7 @@ fun User.toEntity(): UserEntity {
 
 fun User.toFireStore(): UserFireStore {
     return UserFireStore(
-        uid = id,
+        uid = uid,
         email = email,
         name = name,
         gender = gender,
@@ -42,7 +44,8 @@ fun User.toFireStore(): UserFireStore {
 
 fun UserFireStore.toEntity(): UserEntity {
     return UserEntity(
-        id = uid,
+        id = "",
+        uid = uid,
         email = email,
         name = name,
         gender = gender,

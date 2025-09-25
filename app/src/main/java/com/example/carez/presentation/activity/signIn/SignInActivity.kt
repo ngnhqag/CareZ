@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import kotlin.math.log
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
@@ -33,8 +35,24 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
         handleBindingData()
         signInWithGoogle()
+        signInWithEmail()
         navigateToSignUp()
     }
+
+    private fun signInWithEmail() {
+        binding.btnSignIn.setOnClickListener {
+            val email = binding.edtGmail.text.toString().trim()
+            val password = binding.edtPassword.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty()) {
+
+                Toast.makeText(this, "Vui lòng nhập email và mật khẩu", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            viewModel.signInWithEmail(email, password)
+        }
+    }
+
 
     private fun navigateToSignUp() {
         binding.txtSignUp.setOnClickListener {
@@ -71,4 +89,5 @@ class SignInActivity : AppCompatActivity() {
             viewModel.signInWithGoogle(this)
         }
     }
+
 }

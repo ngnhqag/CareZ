@@ -2,6 +2,7 @@ package com.example.carez.presentation.activity.signUp
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.carez.data.remote.model.UserFireStore
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
@@ -19,7 +20,7 @@ class SignUpViewModel : ViewModel() {
                     if (task.isSuccessful) {
                         val user = auth.currentUser
                         if (user != null) {
-                            saveUserToFirestore(id,email,user.uid,onResult)
+                                saveUserToFirestore(id,email,user.uid,onResult)
                         }
                         else{
                             onResult(false,task.exception?.message ?: "Đăng ký thất bại")
@@ -29,15 +30,22 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-    private fun saveUserToFirestore(id: String, email: String, uid: String, onResult: (Boolean, String) -> Unit) {
-        val userMap = hashMapOf(
-            "id" to id,
-            "email" to email,
-            "uid" to uid,
+    private fun saveUserToFirestore(
+        id: String,
+        email: String,
+        uid: String,
+        onResult: (Boolean, String) -> Unit
+    ) {
+
+        val user = UserFireStore(
+            uid = uid,
+            email = email,
+            // name, gender, age, height, weight sẽ giữ giá trị mặc định
         )
 
-        db.collection("user").document(id)  // tạo 1 collection chứa user và collection chứa document có tên là uid
-            .set(userMap)
+        db.collection("users")
+            .document(uid)
+            .set(user)                       // Firestore tự map theo property name
             .addOnSuccessListener {
                 onResult(true, "Đăng ký thành công")
             }
@@ -45,4 +53,5 @@ class SignUpViewModel : ViewModel() {
                 onResult(false, "Lỗi lưu dữ liệu: ${e.message}")
             }
     }
+
 }
