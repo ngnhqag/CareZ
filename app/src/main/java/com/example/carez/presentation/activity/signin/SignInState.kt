@@ -1,4 +1,4 @@
-package com.example.carez.presentation.activity.signIn
+package com.example.carez.presentation.activity.signin
 
 data class SignInState(
     val username: String = "",

@@ -12,12 +12,12 @@ import com.example.carez.data.repository.UserRepositoryImpl
 import com.example.carez.domain.repository.UserRepository
 import com.example.carez.domain.usecase.CheckSignInUseCase
 import com.example.carez.domain.usecase.InsertUserUseCase
-import com.example.carez.domain.usecase.SignInWithEmailUseCase
 import com.example.carez.domain.usecase.SignInWithGoogleUseCase
 import com.example.carez.domain.usecase.SignOutUseCase
+import com.example.carez.domain.usecase.SignUpWithEmailAndPasswordUseCase
 import com.example.carez.presentation.activity.main.MainViewModel
-import com.example.carez.presentation.activity.signIn.SignInViewModel
-import com.example.carez.presentation.activity.splash.SplashActivity
+import com.example.carez.presentation.activity.signin.SignInViewModel
+import com.example.carez.presentation.activity.signup.SignUpViewModel
 import com.example.carez.presentation.activity.splash.SplashViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -37,28 +37,27 @@ val appModule = module {
     // DataSource
     single<GoogleAuthDataSource> { GoogleAuthDataSourceImpl() }
     single<UserLocalDataSource> { UserLocalDataSourceImpl(get()) }
-    single<UserRemoteDataSource> { UserRemoteDataSourceImpl(get()) }
-
+    single<UserRemoteDataSource> { UserRemoteDataSourceImpl(get(),get()) }
     // Repository
-    single<UserRepository> { UserRepositoryImpl(get(), get(), get(),get()) }
+
+    single<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
 
     // UseCase
     factory { SignInWithGoogleUseCase(get()) }
-    factory { SignInWithEmailUseCase(get()) }
     factory { InsertUserUseCase(get()) }
     factory { CheckSignInUseCase(get()) }
     factory { SignOutUseCase(get()) }
+    factory { SignUpWithEmailAndPasswordUseCase(get()) }   // ✅ Thêm usecase đăng ký email
 
     // ViewModel
     viewModel {
         SignInViewModel(
             signInWithGoogleUseCase = get(),
-            signInWithEmailUseCase  = get(),
             insertUserUseCase       = get(),
             firebaseAuth            = get()
         )
     }
     viewModel { MainViewModel(get()) }
     viewModel { SplashViewModel(get()) }
-
+    viewModel { SignUpViewModel(get(),get()) }
 }

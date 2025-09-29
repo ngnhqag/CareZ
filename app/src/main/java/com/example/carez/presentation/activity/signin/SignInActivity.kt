@@ -1,9 +1,8 @@
-package com.example.carez.presentation.activity.signIn
+package com.example.carez.presentation.activity.signin
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
@@ -11,12 +10,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.carez.databinding.ActivitySignInBinding
 import com.example.carez.presentation.activity.main.MainActivity
-import com.example.carez.presentation.activity.signUp.SignUpActivity
+import com.example.carez.presentation.activity.signup.SignUpActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
-import kotlin.math.log
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding

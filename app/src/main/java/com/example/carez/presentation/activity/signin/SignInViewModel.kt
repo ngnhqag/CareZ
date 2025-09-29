@@ -1,11 +1,10 @@
-package com.example.carez.presentation.activity.signIn
+package com.example.carez.presentation.activity.signin
 
 import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.carez.domain.model.User
 import com.example.carez.domain.usecase.InsertUserUseCase
-import com.example.carez.domain.usecase.SignInWithEmailUseCase
 import com.example.carez.domain.usecase.SignInWithGoogleUseCase
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +16,6 @@ import kotlinx.coroutines.launch
 class SignInViewModel(
     private val signInWithGoogleUseCase: SignInWithGoogleUseCase,
     private val insertUserUseCase: InsertUserUseCase,
-    private val signInWithEmailUseCase: SignInWithEmailUseCase,
     private val firebaseAuth: FirebaseAuth
 ): ViewModel() {
     private val _state = MutableStateFlow(SignInState())
@@ -41,12 +39,6 @@ class SignInViewModel(
                     }
                 }
             }
-        }
-    }
-    fun signInWithEmail(email: String, password: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val isSuccess = signInWithEmailUseCase(email, password)
-            _state.update { it.copy(isSignInSuccess = isSuccess)}
         }
     }
 }

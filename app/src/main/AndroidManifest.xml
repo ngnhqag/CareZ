@@ -25,7 +25,7 @@
         </activity>
 
         <activity
-            android:name=".presentation.activity.signIn.SignInActivity"
+            android:name=".presentation.activity.signin.SignInActivity"
             android:exported="false" />
 
         <activity
@@ -37,7 +37,7 @@
             android:exported="true" />
 
         <activity
-            android:name=".presentation.activity.signUp.SignUpActivity"
+            android:name=".presentation.activity.signup.SignUpActivity"
             android:exported="true" />
     </application>
 

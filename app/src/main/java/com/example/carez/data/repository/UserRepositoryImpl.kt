@@ -16,20 +16,19 @@ class UserRepositoryImpl(
     private val googleAuthDataSource: GoogleAuthDataSource,
     private val userRemoteDataSource: UserRemoteDataSource,
     private val userLocalDataSource: UserLocalDataSource,
-    private val firebaseAuth: FirebaseAuth
 ) : UserRepository {
     override suspend fun signInWithGoogle(activity: Activity): Boolean {
         return googleAuthDataSource.signIn(activity)
     }
 
-    override suspend fun signInWithEmail(email: String, password: String): Boolean {
-      return  try {
-            firebaseAuth.signInWithEmailAndPassword(email, password).await()
-            true
-        } catch (e: Exception) {
-            false
-        }
-    }
+//    override suspend fun signInWithEmail(email: String, password: String): Boolean {
+//      return  try {
+//            firebaseAuth.signInWithEmailAndPassword(email, password).await()
+//            true
+//        } catch (e: Exception) {
+//            false
+//        }
+//    }
 
 
     override fun isSignedIn(): Boolean {
@@ -78,6 +77,13 @@ class UserRepositoryImpl(
        } catch (e : Exception) {
            Result.failure(e)
        }
+    }
+
+    override suspend fun signUpWithEmailAndPassword(
+        email: String,
+        password: String
+    ): Result<User> {
+        return userRemoteDataSource.signUpWithGmailAndPassword(email, password)
     }
 
 
