@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carez.databinding.ActivityMainBinding
-import com.example.carez.presentation.activity.signIn.SignInActivity
+import com.example.carez.presentation.activity.signin.SignInActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
