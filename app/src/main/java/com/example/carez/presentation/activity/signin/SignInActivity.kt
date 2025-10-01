@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -30,51 +31,53 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        handleBindingData()
+        observeState()
         signInWithGoogle()
-        signInWithEmail()
-        navigateToSignUp()
+        setupListeners()
     }
 
-    private fun signInWithEmail() {
+    private fun setupListeners() {
         binding.btnSignIn.setOnClickListener {
             val email = binding.edtGmail.text.toString().trim()
             val password = binding.edtPassword.text.toString().trim()
-
             if (email.isEmpty() || password.isEmpty()) {
-
                 Toast.makeText(this, "Vui lòng nhập email và mật khẩu", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            viewModel.signInWithEmail(email, password)
+            viewModel.signInWithEmailAndPassword(email, password)
         }
-    }
 
+        binding.txtSignUp.setOnClickListener {
+            navigateToSignUp()
+        }
+
+    }
 
     private fun navigateToSignUp() {
-        binding.txtSignUp.setOnClickListener {
             SignUpActivity.onStart(this)
             finish()
-        }
     }
 
-    private fun handleBindingData() {
+    private fun observeState() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collectLatest { state ->
-                    if (state.isSignInSuccess) {
-                        //Save user infor to firestore and room
-                        saveUser()
+                    binding.progressBar.visibility =
+                        if (state.isLoading) View.VISIBLE else View.GONE
+
+                    state.successMessage?.let { message ->
+                        Toast.makeText(this@SignInActivity, message, Toast.LENGTH_SHORT).show()
                         navigateToMain()
+                    }
+
+                    state.errorMessage?.let { message ->
+                        Toast.makeText(this@SignInActivity, message, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         }
     }
 
-    private fun saveUser() {
-        TODO("Not yet implemented")
-    }
 
     private fun navigateToMain() {
         MainActivity.onStart(this)

@@ -21,16 +21,6 @@ class UserRepositoryImpl(
         return googleAuthDataSource.signIn(activity)
     }
 
-//    override suspend fun signInWithEmail(email: String, password: String): Boolean {
-//      return  try {
-//            firebaseAuth.signInWithEmailAndPassword(email, password).await()
-//            true
-//        } catch (e: Exception) {
-//            false
-//        }
-//    }
-
-
     override fun isSignedIn(): Boolean {
         return googleAuthDataSource.isSignedIn()
     }
@@ -79,11 +69,12 @@ class UserRepositoryImpl(
        }
     }
 
-    override suspend fun signUpWithEmailAndPassword(
-        email: String,
-        password: String
-    ): Result<User> {
-        return userRemoteDataSource.signUpWithGmailAndPassword(email, password)
+    override suspend fun signUpWithEmailAndPassword(email: String, password: String): Result<User> {
+        return userRemoteDataSource.signUpWithEmailAndPassword(email, password)
+    }
+
+    override suspend fun signInWithEmailAndPassword(email: String, password: String): Result<User> {
+        return userRemoteDataSource.signInWithEmailAndPassword(email, password)
     }
 
 

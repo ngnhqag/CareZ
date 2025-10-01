@@ -54,3 +54,15 @@ fun UserFireStore.toEntity(): UserEntity {
         weight = weight
     )
 }
+fun UserFireStore.toDomain(): User {
+    return User(
+        id = "",
+        uid = uid,
+        email = email,
+        name = name,
+        gender = gender,
+        age = age,
+        height = height,
+        weight = weight
+    )
+}

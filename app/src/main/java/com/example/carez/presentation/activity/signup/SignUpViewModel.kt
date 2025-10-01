@@ -37,14 +37,13 @@ class SignUpViewModel(
                         isSuccess = true,
                         errorMessage = null,
                         successMessage = "Đăng ký thành công"
-
                     )
             }
                 .onFailure {  e ->
                     _state.value = _state.value.copy(
                         isLoading = false,
                         isSuccess = false,
-                        errorMessage = e.message ?: "Đăng ký thất bại",
+                        errorMessage = e.message,
                         successMessage = null
                     )
                 }

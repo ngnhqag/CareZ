@@ -180,5 +180,14 @@
             app:srcCompat="@drawable/ic_google"
             android:background="@null"
             android:scaleType="fitCenter"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/btnSignIn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
