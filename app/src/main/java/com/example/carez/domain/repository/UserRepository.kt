@@ -11,5 +11,6 @@ interface UserRepository {
     suspend fun getUserByUid(uid: String): Result<User>
     suspend fun syncUserInfo(uid: String): Result<User>
     suspend fun signUpWithEmailAndPassword(email: String, password: String): Result<User>
+    suspend fun signInWithEmailAndPassword(email: String, password: String): Result<User>
 
 }

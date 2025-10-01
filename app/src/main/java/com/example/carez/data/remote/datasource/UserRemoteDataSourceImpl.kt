@@ -40,26 +40,59 @@ class UserRemoteDataSourceImpl(
         }
     }
 
-    override suspend fun signUpWithGmailAndPassword(
+    override suspend fun signUpWithEmailAndPassword(
         email: String,
         password: String
     ): Result<User> {
-    return try {
-        val result = auth.createUserWithEmailAndPassword(email, password).await()
-        val firebaseUser = result.user ?: return Result.failure(Exception("No User"))
-        val user = User(
-            uid = firebaseUser.uid,
-            email = firebaseUser.email ?: "null"
-        )
-        Result.success(user)
-    } catch (e: FirebaseAuthUserCollisionException) {
-        // Lỗi email đã tồn tại
-        Result.failure(Exception("Email đã được sử dụng"))
-    } catch (e: Exception) {
-        Result.failure(e)
+        return try {
+            val result = auth.createUserWithEmailAndPassword(email, password).await()
+            val remoteUser = result.user ?: return Result.failure(Exception("No User"))
+
+
+            val user = User(
+                uid = remoteUser.uid,
+                email = remoteUser.email ?: ""
+            )
+
+            val userFireStore = UserFireStore(
+                uid = user.uid,
+                email = user.email
+            )
+
+            val firestoreResult = insertUserToFireStore(userFireStore)
+            if (firestoreResult.isFailure) {
+                val exception = firestoreResult.exceptionOrNull() ?: Exception("Lưu user lên Firestore thất bại")
+                return Result.failure(exception)
+            }
+
+
+            Result.success(user)
+
+        } catch (e: FirebaseAuthUserCollisionException) {
+            Result.failure(Exception("Email đã được sử dụng"))
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
     }
 
 
+    override suspend fun signInWithEmailAndPassword(email: String, password: String): Result<User> {
+        return try {
+            val result = auth.signInWithEmailAndPassword(email, password).await()
+            val userFireStore = result.user
+
+            if (userFireStore != null) {
+                val user = User(
+                    id = userFireStore.uid,
+                    email = userFireStore.email ?: "",
+                )
+                Result.success(user)
+            } else {
+                Result.failure(Exception("User is null"))
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
     }
 
 }

@@ -15,15 +15,16 @@ import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
-    private val viewModel: SignUpViewModel by viewModels()
+    private val viewModel: SignUpViewModel by viewModel()
 
     companion object {
-        fun start(context: Context) {
+        fun onStart(context: Context) {
             val intent = Intent(context, SignUpActivity::class.java)
             context.startActivity(intent)
         }
@@ -46,6 +47,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.txtSignIn.setOnClickListener {
+            Log.d("Signupactvt", "txtsignin")
             navigateToSignIn()
         }
     }

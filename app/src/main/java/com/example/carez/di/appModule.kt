@@ -12,9 +12,11 @@ import com.example.carez.data.repository.UserRepositoryImpl
 import com.example.carez.domain.repository.UserRepository
 import com.example.carez.domain.usecase.CheckSignInUseCase
 import com.example.carez.domain.usecase.InsertUserUseCase
+import com.example.carez.domain.usecase.SignInWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.SignInWithGoogleUseCase
 import com.example.carez.domain.usecase.SignOutUseCase
 import com.example.carez.domain.usecase.SignUpWithEmailAndPasswordUseCase
+import com.example.carez.domain.usecase.ValidateSignUpInputUseCase
 import com.example.carez.presentation.activity.main.MainViewModel
 import com.example.carez.presentation.activity.signin.SignInViewModel
 import com.example.carez.presentation.activity.signup.SignUpViewModel
@@ -47,12 +49,16 @@ val appModule = module {
     factory { InsertUserUseCase(get()) }
     factory { CheckSignInUseCase(get()) }
     factory { SignOutUseCase(get()) }
-    factory { SignUpWithEmailAndPasswordUseCase(get()) }   // ✅ Thêm usecase đăng ký email
+    factory { SignUpWithEmailAndPasswordUseCase(get()) }
+    factory { SignInWithEmailAndPasswordUseCase(get()) }
+    factory { ValidateSignUpInputUseCase() }
+
 
     // ViewModel
     viewModel {
         SignInViewModel(
             signInWithGoogleUseCase = get(),
+            signInWithEmailAndPasswordUseCase = get(),
             insertUserUseCase       = get(),
             firebaseAuth            = get()
         )

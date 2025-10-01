@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.carez.domain.model.User
 import com.example.carez.domain.usecase.InsertUserUseCase
+import com.example.carez.domain.usecase.SignInWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.SignInWithGoogleUseCase
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +16,7 @@ import kotlinx.coroutines.launch
 
 class SignInViewModel(
     private val signInWithGoogleUseCase: SignInWithGoogleUseCase,
+    private val signInWithEmailAndPasswordUseCase: SignInWithEmailAndPasswordUseCase,
     private val insertUserUseCase: InsertUserUseCase,
     private val firebaseAuth: FirebaseAuth
 ): ViewModel() {
@@ -34,12 +36,42 @@ class SignInViewModel(
                 if (result) {
                     _state.update { signInState ->
                         signInState.copy(
-                            isSignInSuccess = isSuccess
+                            isSuccess = isSuccess
                         )
                     }
                 }
             }
         }
     }
+
+    fun signInWithEmailAndPassword(email: String, password: String) {
+        viewModelScope.launch {
+            _state.value = _state.value.copy(
+                isLoading = true,
+                errorMessage = null,
+                successMessage = null
+            )
+
+            signInWithEmailAndPasswordUseCase(email, password)
+                .onSuccess { user ->
+                    _state.value = _state.value.copy(
+                        isLoading = false,
+                        isSuccess = true,
+                        errorMessage = null,
+                        successMessage = "Đăng nhập thành công"
+                    )
+                }
+                .onFailure { e ->
+                    _state.value = _state.value.copy(
+                        isLoading = false,
+                        isSuccess = false,
+                        errorMessage = e.message,
+                        successMessage = null
+                    )
+                }
+        }
+    }
+
+
 }
 
