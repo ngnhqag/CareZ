@@ -57,18 +57,6 @@ class UserRepositoryImpl(
         }
     }
 
-
-    override suspend fun syncUserInfo(uid: String): Result<User> {
-       return try {
-        val remote = userRemoteDataSource.getUserFromFireStore(uid).getOrThrow()
-        val entity = remote.toEntity()
-        userLocalDataSource.insertUser(entity)
-        Result.success(entity.toDomain())
-       } catch (e : Exception) {
-           Result.failure(e)
-       }
-    }
-
     override suspend fun signUpWithEmailAndPassword(email: String, password: String): Result<User> {
         return userRemoteDataSource.signUpWithEmailAndPassword(email, password)
     }
@@ -76,6 +64,17 @@ class UserRepositoryImpl(
     override suspend fun signInWithEmailAndPassword(email: String, password: String): Result<User> {
         return userRemoteDataSource.signInWithEmailAndPassword(email, password)
     }
+
+    override suspend fun checkUserInfo(uid: String): Result<Boolean> {
+        return userRemoteDataSource.getUserFromFireStore(uid).map { user ->
+            !user.name.isNullOrEmpty()
+                    && !user.gender.isNullOrEmpty()
+                    && user.height != null
+                    && user.age != null
+                    && user.weight != null
+        }
+    }
+
 
 
 }

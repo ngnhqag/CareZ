@@ -11,6 +11,7 @@ import com.example.carez.data.remote.datasource.UserRemoteDataSourceImpl
 import com.example.carez.data.repository.UserRepositoryImpl
 import com.example.carez.domain.repository.UserRepository
 import com.example.carez.domain.usecase.CheckSignInUseCase
+import com.example.carez.domain.usecase.CheckUserInfoUseCase
 import com.example.carez.domain.usecase.InsertUserUseCase
 import com.example.carez.domain.usecase.SignInWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.SignInWithGoogleUseCase
@@ -52,6 +53,7 @@ val appModule = module {
     factory { SignUpWithEmailAndPasswordUseCase(get()) }
     factory { SignInWithEmailAndPasswordUseCase(get()) }
     factory { ValidateSignUpInputUseCase() }
+    factory { CheckUserInfoUseCase(get()) }
 
 
     // ViewModel
@@ -64,6 +66,7 @@ val appModule = module {
         )
     }
     viewModel { MainViewModel(get()) }
-    viewModel { SplashViewModel(get()) }
+    viewModel { SplashViewModel(get(),get(),get()) }
     viewModel { SignUpViewModel(get(),get()) }
+
 }

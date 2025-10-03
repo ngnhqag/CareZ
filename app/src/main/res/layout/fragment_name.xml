@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
+        android:fontFamily="@font/lansui"
         android:hint="Nhập tên"
         android:padding="12dp"
         android:textColor="@android:color/black"

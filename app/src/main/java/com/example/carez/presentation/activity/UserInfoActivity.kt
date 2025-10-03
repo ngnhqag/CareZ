@@ -1,9 +1,12 @@
 package com.example.carez.presentation.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carez.databinding.ActivityUserInfoBinding
 import com.example.carez.presentation.activity.main.MainActivity
+import com.example.carez.presentation.activity.signin.SignInActivity
 import com.example.carez.presentation.fragment.AgeFragment
 import com.example.carez.presentation.fragment.GenderFragment
 import com.example.carez.presentation.fragment.HeightFragment
@@ -11,6 +14,13 @@ import com.example.carez.presentation.fragment.NameFragment
 import com.example.carez.presentation.fragment.WeightFragment
 
 class UserInfoActivity : AppCompatActivity() {
+
+    companion object {
+        fun onStart(context: Context) {
+            val intent = Intent(context, SignInActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
 
     private lateinit var binding: ActivityUserInfoBinding
     private val fragments = listOf(
@@ -61,6 +71,14 @@ class UserInfoActivity : AppCompatActivity() {
         binding.btnContinue.text = if (index == fragments.size - 1) "Hoàn tất" else "Tiếp tục"
         binding.btnBack.isEnabled = index > 0
 
+        binding.txtTitle.text = when (index) {
+            0 -> "Tên của bạn là:"
+            1 -> "Giới tính của bạn là?"
+            2 -> "Chiều cao của bạn:"
+            3 -> "Tuổi của bạn:"
+            4 -> "Cân nặng của bạn:"
+            else -> ""
+        }
     }
 
 }

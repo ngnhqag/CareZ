@@ -24,12 +24,16 @@ class GoogleAuthDataSourceImpl() : GoogleAuthDataSource {
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun isSignedIn(): Boolean {
-        if (firebaseAuth.currentUser != null) {
-            println(tag + "already signed in")
-            return true
+        val user = firebaseAuth.currentUser
+        return if (user != null) {
+            Log.d(tag, "Already signed in → uid=${user.uid}, email=${user.email}")
+            true
+        } else {
+            Log.d(tag, "Not signed in (currentUser=null)")
+            false
         }
-        return false
     }
+
 
     override suspend fun signIn(activity: Activity): Boolean {
         if (isSignedIn()) return true
