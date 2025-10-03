@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9FAFB"
-    tools:context=".view.SignUpActivity">
+    android:background="@color/white"
+    tools:context=".presentation.activity.signup.SignUpActivity">
 
     <!-- Tiêu đề trên cùng -->
     <TextView
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Care Your Health"
-        android:textColor="#4A3DA8"
+        android:textColor="@color/primary"
         android:textSize="22sp"
         android:fontFamily="@font/poppins_semibold"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,30 +41,11 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Đăng Ký"
-        android:textColor="#4A3DA8"
+        android:textColor="@color/primary"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgcareZ" />
-
-    <!-- Nhập tên -->
-    <EditText
-        android:id="@+id/edtid"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_edittext"
-        android:hint="Nhập tên người dùng"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="#333333"
-        android:textColorHint="#9CA3AF"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp"
-        app:layout_constraintTop_toBottomOf="@id/txtsignInNow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp"
-        android:layout_marginHorizontal="32dp"/>
 
     <!-- Nhập email -->
     <EditText
@@ -79,7 +60,7 @@
         android:textColorHint="#9CA3AF"
         android:paddingStart="14dp"
         android:paddingEnd="14dp"
-        app:layout_constraintTop_toBottomOf="@id/edtid"
+        app:layout_constraintTop_toBottomOf="@id/imgcareZ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="12dp"
@@ -87,7 +68,7 @@
 
     <!-- Nhập mật khẩu -->
     <EditText
-        android:id="@+id/edtPassWord"
+        android:id="@+id/edtPassword"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:background="@drawable/rounded_edittext"
@@ -104,28 +85,9 @@
         android:layout_marginTop="12dp"
         android:layout_marginHorizontal="32dp"/>
 
-    <!-- Nhập lại mật khẩu -->
-    <EditText
-        android:id="@+id/edtRePassWord"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_edittext"
-        android:hint="Nhập lại mật khẩu"
-        android:inputType="textPassword"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="#333333"
-        android:textColorHint="#9CA3AF"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp"
-        app:layout_constraintTop_toBottomOf="@id/edtPassWord"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp"
-        android:layout_marginHorizontal="32dp"/>
-
     <!-- Nút Đăng ký -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnsignUp"
+        android:id="@+id/btnSignUp"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:background="@drawable/buttonsignin"
@@ -134,7 +96,7 @@
         android:fontFamily="@font/poppins_semibold"
         android:textSize="16sp"
         android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/edtRePassWord"
+        app:layout_constraintTop_toBottomOf="@id/edtPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="80dp"/>
@@ -143,11 +105,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đã có tài khoản? Đăng nhập"
-        android:textColor="#072BF2"
+        android:textColor="@color/primary"
         android:textSize="14sp"
         android:fontFamily="@font/poppins_medium"
-        app:layout_constraintTop_toBottomOf="@id/btnsignUp"
+        app:layout_constraintTop_toBottomOf="@id/btnSignUp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="18dp" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/btnSignUp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
