@@ -1,28 +1,29 @@
-package com.example.carez.presentation.activity
+package com.example.carez.presentation.activity.userinfo
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carez.databinding.ActivityUserInfoBinding
-import com.example.carez.presentation.activity.main.MainActivity
-import com.example.carez.presentation.activity.signin.SignInActivity
-import com.example.carez.presentation.fragment.AgeFragment
-import com.example.carez.presentation.fragment.GenderFragment
-import com.example.carez.presentation.fragment.HeightFragment
-import com.example.carez.presentation.fragment.NameFragment
-import com.example.carez.presentation.fragment.WeightFragment
+import com.example.carez.domain.model.User
+import com.example.carez.presentation.activity.splash.SplashActivity
+import com.example.carez.presentation.fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UserInfoActivity : AppCompatActivity() {
 
     companion object {
         fun onStart(context: Context) {
-            val intent = Intent(context, SignInActivity::class.java)
+            val intent = Intent(context, UserInfoActivity::class.java)
             context.startActivity(intent)
         }
     }
 
     private lateinit var binding: ActivityUserInfoBinding
+
+    private val viewModel: UserInfoViewModel by viewModel()
+
     private val fragments = listOf(
         NameFragment(),
         GenderFragment(),
@@ -36,15 +37,41 @@ class UserInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUserInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         showFragment(currentStep)
 
         binding.btnContinue.setOnClickListener {
             if (currentStep < fragments.size - 1) {
                 currentStep++
                 showFragment(currentStep)
-            }
-            else {
-                finishUserInfo()
+            } else {
+                val name = (fragments[0] as NameFragment).getName()
+                val gender = (fragments[1] as GenderFragment).getGender()
+                val height = (fragments[2] as HeightFragment).getHeight()
+                val age = (fragments[3] as AgeFragment).getAge()
+                val weight = (fragments[4] as WeightFragment).getWeight()
+
+                if (name != null && gender != null && height != null && weight != null) {
+                    val user = User(
+                        name = name,
+                        gender = gender,
+                        height = height.toFloat(),
+                        weight = weight,
+                        age = age
+                    )
+
+                    viewModel.saveUser(user) { success ->
+                        if (success) {
+                            SplashActivity.onStart(this)
+                            finish()
+                        } else {
+                            Toast.makeText(this, "Lưu dữ liệu thất bại", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show()
+                }
+
             }
         }
 
@@ -54,15 +81,7 @@ class UserInfoActivity : AppCompatActivity() {
                 showFragment(currentStep)
             }
         }
-
-
     }
-
-    private fun finishUserInfo() {
-        MainActivity.onStart(this@UserInfoActivity)
-        finish()
-    }
-
     private fun showFragment(index: Int) {
         supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, fragments[index])
@@ -80,5 +99,4 @@ class UserInfoActivity : AppCompatActivity() {
             else -> ""
         }
     }
-
 }

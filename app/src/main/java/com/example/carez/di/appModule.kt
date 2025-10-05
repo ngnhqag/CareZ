@@ -22,6 +22,7 @@ import com.example.carez.presentation.activity.main.MainViewModel
 import com.example.carez.presentation.activity.signin.SignInViewModel
 import com.example.carez.presentation.activity.signup.SignUpViewModel
 import com.example.carez.presentation.activity.splash.SplashViewModel
+import com.example.carez.presentation.activity.userinfo.UserInfoViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.android.ext.koin.androidContext
@@ -68,5 +69,6 @@ val appModule = module {
     viewModel { MainViewModel(get()) }
     viewModel { SplashViewModel(get(),get(),get()) }
     viewModel { SignUpViewModel(get(),get()) }
+    viewModel { UserInfoViewModel(get(), get()) }
 
 }

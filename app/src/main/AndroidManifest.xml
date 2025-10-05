@@ -33,7 +33,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".presentation.activity.UserInfoActivity"
+            android:name=".presentation.activity.userinfo.UserInfoActivity"
             android:exported="true" />
 
         <activity

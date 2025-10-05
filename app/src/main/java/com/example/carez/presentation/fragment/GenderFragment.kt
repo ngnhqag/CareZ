@@ -12,6 +12,7 @@ class GenderFragment : Fragment() {
 
     private lateinit var optionMale: LinearLayout
     private lateinit var optionFemale: LinearLayout
+    private var selectedGender: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,13 +23,8 @@ class GenderFragment : Fragment() {
         optionMale = view.findViewById(R.id.optionMale)
         optionFemale = view.findViewById(R.id.optionFemale)
 
-        optionMale.setOnClickListener {
-            selectGender(true)
-        }
-
-        optionFemale.setOnClickListener {
-            selectGender(false)
-        }
+        optionMale.setOnClickListener { selectGender(true) }
+        optionFemale.setOnClickListener { selectGender(false) }
 
         return view
     }
@@ -36,5 +32,10 @@ class GenderFragment : Fragment() {
     private fun selectGender(isMale: Boolean) {
         optionMale.isSelected = isMale
         optionFemale.isSelected = !isMale
+        selectedGender = if (isMale) "Male" else "Female"
+    }
+
+    fun getGender(): String? {
+        return selectedGender
     }
 }
