@@ -1,47 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context=".presentation.fragment.GenderFragment">
+    android:padding="16dp">
 
+    <!-- Layout chọn giới tính -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/layoutGender"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/tvGenderTitle"
-            android:layout_width="wrap_content"
+        <!-- Option Nam -->
+        <LinearLayout
+            android:id="@+id/optionMale"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Chọn giới tính"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="@drawable/bg_gender_option"
+            android:clickable="true"
+            android:focusable="true">
 
-        <RadioGroup
-            android:id="@+id/rgGender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            <TextView
+                android:id="@+id/iconMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="♂"
+                android:textSize="32sp"
+                android:textColor="@color/black" />
 
-            <RadioButton
-                android:id="@+id/rbMale"
+            <TextView
+                android:id="@+id/txtMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nam"
-                android:textColor="@android:color/black"/>
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/rbFemale"
+        <!-- Khoảng cách -->
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
+
+        <!-- Option Nữ -->
+        <LinearLayout
+            android:id="@+id/optionFemale"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="@drawable/bg_gender_option"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/iconFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="♀"
+                android:textSize="32sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nữ"
-                android:textColor="@android:color/black"/>
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
 
-        </RadioGroup>
     </LinearLayout>
+
 </FrameLayout>

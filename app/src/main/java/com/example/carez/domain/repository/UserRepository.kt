@@ -9,8 +9,8 @@ interface UserRepository {
     suspend fun signOut(activity: Activity)
     suspend fun insertUser(user: User): Result<Boolean>
     suspend fun getUserByUid(uid: String): Result<User>
-    suspend fun syncUserInfo(uid: String): Result<User>
     suspend fun signUpWithEmailAndPassword(email: String, password: String): Result<User>
     suspend fun signInWithEmailAndPassword(email: String, password: String): Result<User>
+    suspend fun checkUserInfo(uid: String): Result<Boolean>
 
 }

@@ -3,6 +3,7 @@ package com.example.carez.presentation.activity.signin
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.carez.databinding.ActivitySignInBinding
 import com.example.carez.presentation.activity.main.MainActivity
 import com.example.carez.presentation.activity.signup.SignUpActivity
+import com.example.carez.presentation.activity.splash.SplashActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -67,7 +70,9 @@ class SignInActivity : AppCompatActivity() {
 
                     state.successMessage?.let { message ->
                         Toast.makeText(this@SignInActivity, message, Toast.LENGTH_SHORT).show()
-                        navigateToMain()
+                        Log.d("SignInAct", "Login success, currentUser = ${FirebaseAuth.getInstance().currentUser?.uid}")
+                        SplashActivity.onStart(this@SignInActivity)
+                        finish()
                     }
 
                     state.errorMessage?.let { message ->
@@ -76,12 +81,6 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-
-    private fun navigateToMain() {
-        MainActivity.onStart(this)
-        finish()
     }
 
     private fun signInWithGoogle() {
