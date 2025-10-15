@@ -1,6 +1,7 @@
-package com.example.carez.presentation.fragment
+package com.example.carez.presentation.fragment.userinfo
 
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
@@ -9,27 +10,27 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.carez.R
 
-class WeightFragment : Fragment() {
-    private var weightValue: Float? = null
+class NameFragment : Fragment() {
+    private var nameValue: String? = null
 
-    fun getWeight(): Float? = weightValue
+    fun getName(): String? = nameValue?.takeIf { it.isNotBlank() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = inflater.inflate(R.layout.fragment_weight, container, false)
+    ) = inflater.inflate(R.layout.fragment_name, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val edtWeight = view.findViewById<EditText>(R.id.edtWeight)
-        weightValue = edtWeight.text?.toString()?.toFloatOrNull()
-        edtWeight.addTextChangedListener(object : TextWatcher {
+        val edtName = view.findViewById<EditText>(R.id.edtName)
+        nameValue = edtName.text?.toString()
+        edtName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                weightValue = s?.toString()?.toFloatOrNull()
+                nameValue = s?.toString()
             }
 
-            override fun afterTextChanged(s: android.text.Editable?) {}
+            override fun afterTextChanged(s: Editable?) {}
         })
     }
 }

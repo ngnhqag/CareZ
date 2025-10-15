@@ -1,4 +1,4 @@
-package com.example.carez.presentation.fragment
+package com.example.carez.presentation.fragment.userinfo
 
 import android.os.Bundle
 import android.view.LayoutInflater

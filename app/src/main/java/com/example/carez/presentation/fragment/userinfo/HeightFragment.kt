@@ -1,6 +1,7 @@
-package com.example.carez.presentation.fragment
+package com.example.carez.presentation.fragment.userinfo
 
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +30,7 @@ class HeightFragment : Fragment() {
                 heightValue = s?.toString()?.toIntOrNull()
             }
 
-            override fun afterTextChanged(s: android.text.Editable?) {}
+            override fun afterTextChanged(s: Editable?) {}
         })
     }
 }

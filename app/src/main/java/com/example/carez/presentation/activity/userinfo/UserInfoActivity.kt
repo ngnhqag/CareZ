@@ -8,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.carez.databinding.ActivityUserInfoBinding
 import com.example.carez.domain.model.User
 import com.example.carez.presentation.activity.splash.SplashActivity
-import com.example.carez.presentation.fragment.*
+import com.example.carez.presentation.fragment.userinfo.AgeFragment
+import com.example.carez.presentation.fragment.userinfo.GenderFragment
+import com.example.carez.presentation.fragment.userinfo.HeightFragment
+import com.example.carez.presentation.fragment.userinfo.NameFragment
+import com.example.carez.presentation.fragment.userinfo.WeightFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UserInfoActivity : AppCompatActivity() {
