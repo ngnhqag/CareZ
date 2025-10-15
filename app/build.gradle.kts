@@ -3,32 +3,29 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("org.jetbrains.kotlin.kapt")
-    id("com.google.devtools.ksp") version "2.0.21-1.0.27"
+    id("com.google.devtools.ksp") version "2.1.0-1.0.29"
 }
-
 
 android {
     namespace = "com.example.carez"
     compileSdk = 36
 
-    viewBinding {
-        enable = true
-    }
-
     defaultConfig {
         applicationId = "com.example.carez"
-        minSdk = 26 // Hỗ trợ adaptive icon
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
 
     buildTypes {
         release {
@@ -54,6 +51,7 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.activity:activity-ktx:1.8.2")
+
     implementation(libs.google.firebase.auth)
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
@@ -75,4 +73,12 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
+
+    // Custom Views
+    implementation("com.github.lzyzsd:circleprogress:1.2.1")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    //Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
 }

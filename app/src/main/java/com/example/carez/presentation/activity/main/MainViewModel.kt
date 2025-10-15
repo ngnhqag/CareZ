@@ -8,11 +8,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    private val signOutUseCase: SignOutUseCase
 ) : ViewModel() {
-    fun signOut(activity: Activity) {
-        viewModelScope.launch(Dispatchers.IO) {
-            signOutUseCase(activity)
-        }
-    }
+
 }

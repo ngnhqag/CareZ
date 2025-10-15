@@ -1,0 +1,137 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgFood"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/img_comrang"
+            app:shapeAppearanceOverlay="@style/RoundedImage"/>
+
+
+        <LinearLayout
+
+            android:id="@+id/layoutInfoFood"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/txtNameFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/com_rang"
+                android:fontFamily="@font/lansui"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/txtCalo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/lansui"
+                android:text="@string/value_comrang" />
+
+            <LinearLayout
+                android:id="@+id/layoutInfoNutrition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="7dp">
+
+                <ImageView
+                    android:id="@+id/imgLipid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_lipid" />
+
+                <TextView
+                    android:id="@+id/txtLipid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/value_chat_beoinfo" />
+                <ImageView
+                    android:id="@+id/imgFiber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_fiber"
+                    android:layout_marginStart="7dp"/>
+
+                <TextView
+                    android:id="@+id/txtFiber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/value_chat_beoinfo" />
+
+                <ImageView
+                    android:id="@+id/imgProtein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_protein"
+                    android:layout_marginStart="7dp"/>
+
+                <TextView
+                    android:id="@+id/txtProtein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/value_chat_beoinfo" />
+
+                <ImageView
+                    android:id="@+id/imgSugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_sugar"
+                    android:layout_marginStart="7dp"/>
+
+                <TextView
+                    android:id="@+id/txtSugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/value_chat_beoinfo" />
+
+                <ImageView
+                    android:id="@+id/imgSalt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_salt"
+                    android:layout_marginStart="7dp"/>
+
+                <TextView
+                    android:id="@+id/txtSalt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/value_chat_beoinfo" />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

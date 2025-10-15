@@ -90,7 +90,7 @@
         android:id="@+id/btnSignUp"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="@drawable/buttonsignin"
+        android:background="@drawable/btn_sign_in"
         android:text="Đăng Ký"
         android:textColor="@android:color/white"
         android:fontFamily="@font/poppins_semibold"
