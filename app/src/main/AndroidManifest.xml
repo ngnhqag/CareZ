@@ -14,28 +14,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CareZ"
         tools:targetApi="31">
-
+        <activity
+            android:name=".presentation.activity.food.EditFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activity.food.FoodDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.activity.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".presentation.activity.signin.SignInActivity"
             android:exported="false" />
-
         <activity
             android:name=".presentation.activity.splash.SplashActivity"
             android:exported="false" />
-
         <activity
             android:name=".presentation.activity.userinfo.UserInfoActivity"
             android:exported="true" />
-
         <activity
             android:name=".presentation.activity.signup.SignUpActivity"
             android:exported="true" />
