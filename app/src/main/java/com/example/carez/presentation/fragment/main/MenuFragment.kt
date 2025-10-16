@@ -1,5 +1,6 @@
 package com.example.carez.presentation.fragment.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carez.databinding.FragmentMenuBinding
 import com.example.carez.domain.model.Food
+import com.example.carez.presentation.activity.FoodDetailActivity
 import com.example.carez.presentation.adapter.FoodAdapter
 
 class MenuFragment : Fragment() {
@@ -37,7 +39,11 @@ class MenuFragment : Fragment() {
             Food("9", "Bánh cuốn", 200, 250, 6.0f, 2, 10, 3, 1, 90),
             Food("10", "Sữa chua", 100, 120, 3.5f, 0, 6, 15, 0, 80))
 
-        val adapter = FoodAdapter(listFood)
+        val adapter = FoodAdapter(listFood) { food ->
+            val intent = Intent(requireContext(), FoodDetailActivity::class.java)
+            intent.putExtra("food", food)
+            startActivity(intent)
+        }
         binding.rvFood.adapter = adapter
         binding.rvFood.layoutManager = LinearLayoutManager(
             requireContext(),

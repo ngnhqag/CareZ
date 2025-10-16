@@ -8,7 +8,11 @@ import com.example.carez.databinding.ItemFoodBinding
 import com.example.carez.domain.model.Food
 import com.example.carez.R
 
-class FoodAdapter (var listFood:List<Food>) :RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
+class FoodAdapter (
+    var listFood:List<Food>,
+    private val onItemClick: (Food) -> Unit
+) :RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val binding = ItemFoodBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FoodViewHolder(binding)
@@ -32,6 +36,10 @@ class FoodAdapter (var listFood:List<Food>) :RecyclerView.Adapter<FoodAdapter.Fo
             } else {
                 holder.binding.imgFood.setImageResource(R.drawable.img_comrang)
             }
+
+        holder.binding.root.setOnClickListener {
+            onItemClick(food)
+        }
     }
 
     override fun getItemCount(): Int {

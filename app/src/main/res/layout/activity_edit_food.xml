@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:fillViewport="true"
+    tools:context=".presentation.activity.EditFoodActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgPreview"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_comrang"
+            android:background="@drawable/bg_card_rounded"
+            android:contentDescription="@string/food_image" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên món ăn"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/edtCalo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Calo (kcal)" />
+
+        <EditText
+            android:id="@+id/edtGram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Khối lượng (g)" />
+
+        <EditText
+            android:id="@+id/edtProtein"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Protein (g)" />
+
+        <EditText
+            android:id="@+id/edtLipid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lipid (g)" />
+
+        <EditText
+            android:id="@+id/edtFiber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chất xơ (g)" />
+
+        <EditText
+            android:id="@+id/edtSugar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Đường (g)" />
+
+        <EditText
+            android:id="@+id/edtSalt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Muối (g)" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lưu thay đổi"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</ScrollView>

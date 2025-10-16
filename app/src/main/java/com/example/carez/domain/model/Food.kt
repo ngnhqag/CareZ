@@ -1,5 +1,11 @@
 package com.example.carez.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+
+
+@Parcelize
 data class Food (
     val id: String = "",
     val name: String,
@@ -13,4 +19,4 @@ data class Food (
     val water: Int,
     val localPath: String? = null,
     val remoteUrl: String? = null
-)
+): Parcelable

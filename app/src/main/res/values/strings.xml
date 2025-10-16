@@ -53,4 +53,13 @@
     <string name="can_nang">60 kg</string>
     <string name="dang_xuat">Đăng Xuất</string>
 
+    <!-- contentDescription -->
+    <string name="calories_icon">Calories icon</string>
+    <string name="food_image">Food image</string>
+    <string name="protein_icon">Protein icon</string>
+    <string name="lipid_icon">Lipid icon</string>
+    <string name="fiber_icon">Fiber icon</string>
+    <string name="sugar_icon">Sugar icon</string>
+    <string name="salt_icon">Salt icon</string>
+
 </resources>
