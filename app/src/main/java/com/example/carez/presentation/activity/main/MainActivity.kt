@@ -10,7 +10,7 @@ import com.example.carez.R
 import com.example.carez.databinding.ActivityMainBinding
 import com.example.carez.presentation.fragment.main.ProgressFragment
 import com.example.carez.presentation.fragment.main.HomeFragment
-import com.example.carez.presentation.fragment.main.MenuFragment
+import com.example.carez.presentation.fragment.menu.MenuFragment
 import com.example.carez.presentation.fragment.main.ProfileFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
