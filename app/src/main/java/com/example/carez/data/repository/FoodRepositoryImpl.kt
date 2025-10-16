@@ -11,17 +11,16 @@ class FoodRepositoryImpl : FoodRepository {
 
 // TAB: ĐỒ ĂN NHANH
 
-        Food("fast_01", "Bánh mì trắng (baguette VN)", "Đồ ăn nhanh", 100, 265, 3.2f, 2, 9, 5, 0, 0, null, null),
-        Food("fast_01", "Bánh mì trắng (baguette VN)", "Đồ ăn nhanh", 100, 265, 3.2f, 2, 9, 5, 0, 0, null, null),
-        Food("fast_02", "Bánh mì trứng ốp la (100 g)", "Đồ ăn nhanh", 100, 230, 11.0f, 1, 10, 3, 0, 0, null, null),
-        Food("fast_03", "Bánh mì chả lụa (100 g)", "Đồ ăn nhanh", 100, 250, 9.0f, 1, 11, 3, 1, 0, null, null),
-        Food("fast_04", "Bánh bao nhân thịt (100 g)", "Đồ ăn nhanh", 100, 223, 5.0f, 1, 8, 3, 0, 0, null, null),
-        Food("fast_05", "Bánh cuốn (100 g)", "Đồ ăn nhanh", 100, 145, 3.8f, 0, 4, 1, 0, 0, null, null),
-        Food("fast_06", "Xôi trắng (gạo nếp, 100 g)", "Đồ ăn nhanh", 100, 300, 0.5f, 1, 5, 0, 0, 0, null, null),
-        Food("fast_07", "Xôi đậu xanh (100 g)", "Đồ ăn nhanh", 100, 320, 2.5f, 3, 8, 1, 0, 0, null, null),
-        Food("fast_08", "Bún tươi (100 g)", "Đồ ăn nhanh", 100, 110, 0.2f, 0, 2, 0, 0, 0, null, null),
-        Food("fast_09", "Bánh phở tươi (100 g)", "Đồ ăn nhanh", 100, 110, 0.2f, 0, 2, 0, 0, 0, null, null),
-        Food("fast_10", "Mì ăn liền (đã nấu, 100 g)", "Đồ ăn nhanh", 100, 190, 8.0f, 1, 4, 0, 1, 0, null, null),
+        Food("fast_01", "Bánh mì trắng (baguette VN)", "Đồ ăn nhanh", 100, 265, 3.2f, 2, 9, 5, 0, 0, "img_banhmitrang", null),
+        Food("fast_02", "Bánh mì trứng ốp la", "Đồ ăn nhanh", 100, 230, 11.0f, 1, 10, 3, 0, 0, null, null),
+        Food("fast_03", "Bánh mì chả lụa", "Đồ ăn nhanh", 100, 250, 9.0f, 1, 11, 3, 1, 0, null, null),
+        Food("fast_04", "Bánh bao nhân thịt", "Đồ ăn nhanh", 100, 223, 5.0f, 1, 8, 3, 0, 0, null, null),
+        Food("fast_05", "Bánh cuốn", "Đồ ăn nhanh", 100, 145, 3.8f, 0, 4, 1, 0, 0, null, null),
+        Food("fast_06", "Xôi trắng", "Đồ ăn nhanh", 100, 300, 0.5f, 1, 5, 0, 0, 0, null, null),
+        Food("fast_07", "Xôi đậu xanh", "Đồ ăn nhanh", 100, 320, 2.5f, 3, 8, 1, 0, 0, null, null),
+        Food("fast_08", "Bún tươi", "Đồ ăn nhanh", 100, 110, 0.2f, 0, 2, 0, 0, 0, null, null),
+        Food("fast_09", "Bánh phở tươi", "Đồ ăn nhanh", 100, 110, 0.2f, 0, 2, 0, 0, 0, null, null),
+        Food("fast_10", "Mì ăn liền (đã nấu)", "Đồ ăn nhanh", 100, 190, 8.0f, 1, 4, 0, 1, 0, null, null),
 
 // TAB: ĐỒ ĂN VẶT
 
@@ -32,7 +31,7 @@ class FoodRepositoryImpl : FoodRepository {
         Food("snack_05", "Bánh chuối chiên", "Đồ ăn vặt", 100, 298, 8.9f, 3, 4, 20, 0, 0, null, null),
         Food("snack_06", "Bánh khoai chiên", "Đồ ăn vặt", 100, 280, 9.2f, 3, 3, 18, 0, 0, null, null),
         Food("snack_07", "Bánh cam", "Đồ ăn vặt", 100, 340, 7.0f, 2, 6, 22, 0, 0, null, null),
-        Food("snack_08", "Bánh đúc ngọt", "Đồ ăn vặt", 100, 210, 4.0f, 1, 4, 12, 0, 0, null, null),
+        Food("snack_08", "Bánh đúc", "Đồ ăn vặt", 100, 210, 4.0f, 1, 4, 12, 0, 0, null, null),
         Food("snack_09", "Bánh trôi nước", "Đồ ăn vặt", 100, 247, 6.0f, 1, 5, 15, 0, 0, null, null),
         Food("snack_10", "Chè đậu xanh", "Đồ ăn vặt", 100, 140, 1.0f, 3, 5, 12, 0, 0, null, null),
 

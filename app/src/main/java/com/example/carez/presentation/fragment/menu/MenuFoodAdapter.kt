@@ -36,9 +36,11 @@ class MenuFoodAdapter(
             txtSugar.text = "${food.sugar} g"
             txtSalt.text = "${food.salt} g"
 
+            val context = imgFood.context
+            val resId = context.resources.getIdentifier(food.localPath, "drawable", context.packageName)
             val imageSource = food.localPath ?: food.remoteUrl
             if (!imageSource.isNullOrEmpty()) {
-                Glide.with(imgFood.context)
+                Glide.with(context)
                     .load(imageSource)
                     .placeholder(R.drawable.img_comrang)
                     .into(imgFood)
