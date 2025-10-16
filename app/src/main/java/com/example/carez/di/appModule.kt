@@ -8,14 +8,17 @@ import com.example.carez.data.remote.datasource.GoogleAuthDataSource
 import com.example.carez.data.remote.datasource.GoogleAuthDataSourceImpl
 import com.example.carez.data.remote.datasource.UserRemoteDataSource
 import com.example.carez.data.remote.datasource.UserRemoteDataSourceImpl
+import com.example.carez.data.repository.FoodRepositoryImpl
 import com.example.carez.data.repository.UserRepositoryImpl
 import com.example.carez.data.repository.fake.FakeProgressRepository
+import com.example.carez.domain.repository.FoodRepository
 import com.example.carez.domain.repository.ProgressRepository
 import com.example.carez.domain.repository.UserRepository
 import com.example.carez.domain.usecase.CheckSignInUseCase
 import com.example.carez.domain.usecase.CheckUserInfoUseCase
 import com.example.carez.domain.usecase.GetAverageProgressUseCase
 import com.example.carez.domain.usecase.GetDailyProgressUseCase
+import com.example.carez.domain.usecase.GetFoodsByCategoryUseCase
 import com.example.carez.domain.usecase.GetMonthlyProgressUseCase
 import com.example.carez.domain.usecase.InsertUserUseCase
 import com.example.carez.domain.usecase.SignInWithEmailAndPasswordUseCase
@@ -23,7 +26,7 @@ import com.example.carez.domain.usecase.SignInWithGoogleUseCase
 import com.example.carez.domain.usecase.SignOutUseCase
 import com.example.carez.domain.usecase.SignUpWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.ValidateSignUpInputUseCase
-import com.example.carez.presentation.activity.main.MainViewModel
+import com.example.carez.presentation.activity.food.MenuFoodViewModel
 import com.example.carez.presentation.activity.signin.SignInViewModel
 import com.example.carez.presentation.activity.signup.SignUpViewModel
 import com.example.carez.presentation.activity.splash.SplashViewModel
@@ -31,7 +34,6 @@ import com.example.carez.presentation.activity.userinfo.UserInfoViewModel
 import com.example.carez.presentation.fragment.ProgressViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -52,6 +54,7 @@ val appModule = module {
 
     single<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
     single<ProgressRepository> { FakeProgressRepository() }
+    single< FoodRepository> { FoodRepositoryImpl() }
 
     // UseCase
     factory { SignInWithGoogleUseCase(get()) }
@@ -65,6 +68,7 @@ val appModule = module {
     factory { GetDailyProgressUseCase(get()) }
     factory { GetMonthlyProgressUseCase(get()) }
     factory { GetAverageProgressUseCase() }
+    factory { GetFoodsByCategoryUseCase(get()) }
 
 
     // ViewModel
@@ -81,5 +85,5 @@ val appModule = module {
     viewModel { SignUpViewModel(get(),get()) }
     viewModel { UserInfoViewModel(get(), get()) }
     viewModel { ProgressViewModel(get(), get()) }
-
+    viewModel { MenuFoodViewModel(get()) }
 }

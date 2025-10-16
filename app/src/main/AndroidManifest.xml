@@ -15,12 +15,6 @@
         android:theme="@style/Theme.CareZ"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.activity.food.EditFoodActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.activity.food.FoodDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.activity.main.MainActivity"
             android:exported="true">
             <intent-filter>
