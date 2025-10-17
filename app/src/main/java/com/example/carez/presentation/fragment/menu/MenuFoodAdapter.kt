@@ -3,10 +3,10 @@ package com.example.carez.presentation.fragment.menu
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.carez.R
 import com.example.carez.databinding.ItemFoodBinding
 import com.example.carez.domain.model.Food
+import com.example.carez.presentation.util.loadFoodImage
 
 class MenuFoodAdapter(
     private val onItemClick: (Food) -> Unit
@@ -36,18 +36,7 @@ class MenuFoodAdapter(
             txtSugar.text = "${food.sugar} g"
             txtSalt.text = "${food.salt} g"
 
-            val context = imgFood.context
-            val resId = context.resources.getIdentifier(food.localPath, "drawable", context.packageName)
-            val imageSource = food.localPath ?: food.remoteUrl
-            if (!imageSource.isNullOrEmpty()) {
-                Glide.with(context)
-                    .load(imageSource)
-                    .placeholder(R.drawable.img_comrang)
-                    .into(imgFood)
-            } else {
-                imgFood.setImageResource(R.drawable.img_comrang)
-            }
-
+            imgFood.loadFoodImage(food.localPath, food.remoteUrl, R.drawable.img_comrang)
             root.setOnClickListener { onItemClick(food) }
         }
     }

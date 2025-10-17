@@ -9,12 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carez.databinding.FragmentMenuBinding
 import com.example.carez.presentation.activity.food.MenuFoodViewModel
-import com.example.carez.presentation.fragment.menu.MenuFoodAdapter
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MenuFragment : Fragment() {
-
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MenuFoodViewModel by viewModel()
