@@ -2,11 +2,9 @@ package com.example.carez.presentation.activity.signup
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.carez.data.remote.model.UserFireStore
 import com.example.carez.domain.usecase.SignUpWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.ValidateSignUpInputUseCase
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.example.carez.presentation.state.SignUpState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

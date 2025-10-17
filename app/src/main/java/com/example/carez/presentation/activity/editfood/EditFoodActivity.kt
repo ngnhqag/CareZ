@@ -1,4 +1,4 @@
-package com.example.carez.presentation.activity
+package com.example.carez.presentation.activity.editfood
 
 import android.os.Bundle
 import android.widget.Toast

@@ -1,5 +1,6 @@
 package com.example.carez.presentation.fragment.menu
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carez.databinding.FragmentMenuBinding
-import com.example.carez.presentation.activity.food.MenuFoodViewModel
+import com.example.carez.presentation.activity.fooddetail.FoodDetailActivity
+import com.example.carez.presentation.activity.fooddetail.MenuFoodViewModel
+import com.example.carez.presentation.adapter.MenuFoodAdapter
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -37,6 +40,9 @@ class MenuFragment : Fragment() {
 
     private fun setupRecyclerView() {
         menuFoodAdapter = MenuFoodAdapter { food ->
+            val intent = Intent(requireContext(), FoodDetailActivity::class.java)
+            intent.putExtra("food", food)
+            startActivity(intent)
             Toast.makeText(requireContext(), "Chọn: ${food.name}", Toast.LENGTH_SHORT).show()
         }
 

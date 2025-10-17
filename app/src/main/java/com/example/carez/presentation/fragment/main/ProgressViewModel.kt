@@ -2,19 +2,13 @@ package com.example.carez.presentation.fragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.carez.domain.model.DailyProgress
 import com.example.carez.domain.usecase.GetAverageProgressUseCase
 import com.example.carez.domain.usecase.GetMonthlyProgressUseCase
+import com.example.carez.presentation.state.ProgressState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-data class ProgressState(
-    val isLoading: Boolean = false,
-    val data: List<DailyProgress> = emptyList(),
-    val averagePercent: Int = 0,
-    val error: String? = null
-)
 
 class ProgressViewModel(
     private val getMonthlyProgressUseCase: GetMonthlyProgressUseCase,

@@ -1,13 +1,15 @@
-package com.example.carez.presentation.activity
+package com.example.carez.presentation.activity.fooddetail
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import com.example.carez.R
 import com.example.carez.databinding.ActivityFoodDetailBinding
 import com.example.carez.domain.model.Food
+import com.example.carez.presentation.activity.editfood.EditFoodActivity
+import com.example.carez.presentation.util.loadFoodImage
 
 class FoodDetailActivity : AppCompatActivity() {
 
@@ -17,9 +19,8 @@ class FoodDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFoodDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         // Nhận dữ liệu từ Intent
-        val food: Food? = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+         val food: Food? = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             intent.getParcelableExtra("food", Food::class.java)
         } else {
             @Suppress("DEPRECATION")
@@ -31,7 +32,6 @@ class FoodDetailActivity : AppCompatActivity() {
         food?.let {
             binding.apply {
                 txtName.text = it.name
-                txtCal.text = "${it.calo} kcal"
                 txtCalGram.text = "${it.calo} kcal / ${it.gram} g"
                 txtProtein.text = "Protein: ${it.protein} g"
                 txtFiber.text = "Chất xơ: ${it.fiber} g"
@@ -39,9 +39,7 @@ class FoodDetailActivity : AppCompatActivity() {
                 txtSugar.text = "Đường: ${it.sugar} g"
                 txtSalt.text = "Muối: ${it.salt} g"
 
-                Glide.with(this@FoodDetailActivity)
-                    .load(it.remoteUrl ?: it.localPath)
-                    .into(imgFood)
+                imgFood.loadFoodImage(food.localPath, food.remoteUrl, R.drawable.img_comrang)
             }
         }
 
@@ -65,5 +63,10 @@ class FoodDetailActivity : AppCompatActivity() {
                 .setNegativeButton("Hủy", null)
                 .show()
         }
+        // Nút trở về
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
+
 }

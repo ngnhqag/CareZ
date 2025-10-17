@@ -1,4 +1,4 @@
-package com.example.carez.presentation.activity.signin
+package com.example.carez.presentation.state
 
 data class SignInState(
     val isLoading: Boolean = false,

@@ -61,7 +61,15 @@
     <string name="fiber_icon">Fiber icon</string>
     <string name="sugar_icon">Sugar icon</string>
     <string name="salt_icon">Salt icon</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- FoodDetail -->
+    <string name="sua_mon">Sửa Món</string>
+    <string name="xoa_mon">Xoá Món</string>
+    <string name="them_vao">Thêm vào</string>
+    <string name="nhap_so_gram">Nhập số gram</string>
+    <string name="back">Back</string>
+
+    <!-- FragmentHome -->
+    <string name="nhat_ky_hom_nay">Nhật ký hôm nay</string>
 
 </resources>

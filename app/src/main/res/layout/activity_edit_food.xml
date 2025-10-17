@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:fillViewport="true"
-    tools:context=".presentation.activity.EditFoodActivity">
+    tools:context=".presentation.activity.editfood.EditFoodActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

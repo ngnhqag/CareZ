@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.carez.databinding.FragmentProgressBinding
 import com.example.carez.presentation.fragment.ProgressViewModel
+import com.example.carez.presentation.state.ProgressState
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.github.mikephil.charting.data.BarData
@@ -43,7 +44,7 @@ class ProgressFragment : Fragment() {
         }
     }
 
-    private fun updateUI(state: com.example.carez.presentation.fragment.ProgressState) {
+    private fun updateUI(state: ProgressState) {
         val today = state.data.last()
         val percent = (today.calories * 100) / today.goal
 
