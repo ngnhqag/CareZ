@@ -26,7 +26,7 @@ import com.example.carez.domain.usecase.SignInWithGoogleUseCase
 import com.example.carez.domain.usecase.SignOutUseCase
 import com.example.carez.domain.usecase.SignUpWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.ValidateSignUpInputUseCase
-import com.example.carez.presentation.activity.food.MenuFoodViewModel
+import com.example.carez.presentation.activity.fooddetail.MenuFoodViewModel
 import com.example.carez.presentation.activity.signin.SignInViewModel
 import com.example.carez.presentation.activity.signup.SignUpViewModel
 import com.example.carez.presentation.activity.splash.SplashViewModel

@@ -10,12 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
-data class UserInfoState(
-    val isLoading: Boolean = false,
-    val isSaved: Boolean = false,
-    val errorMessage: String? = null
-)
+import com.example.carez.presentation.state.UserInfoState
 
 class UserInfoViewModel(
     private val insertUserUseCase: InsertUserUseCase,

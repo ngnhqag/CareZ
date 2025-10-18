@@ -1,4 +1,4 @@
-package com.example.carez.presentation.activity.food
+package com.example.carez.presentation.activity.fooddetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

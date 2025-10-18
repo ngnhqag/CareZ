@@ -3,15 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     android:background="@color/white"
-    tools:context=".presentation.activity.FoodDetailActivity">
+    tools:context=".presentation.activity.fooddetail.FoodDetailActivity">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back"
+            android:layout_gravity="start|top"/>
 
         <!-- Ảnh món ăn -->
         <ImageView
@@ -33,16 +48,6 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginTop="12dp" />
-
-        <!-- Calo -->
-        <TextView
-            android:id="@+id/txtCal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="16sp"
-            android:textColor="@color/gray"
-            android:layout_marginBottom="12dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -184,8 +189,6 @@
 
         </LinearLayout>
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -199,7 +202,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Sửa món"
+                android:text="@string/sua_mon"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/black"
                 android:textColor="@color/white"
@@ -210,12 +213,43 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Xóa món"
+                android:text="@string/xoa_mon"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/red"
                 android:textColor="@color/white"
                 android:layout_marginStart="8dp" />
         </LinearLayout>
+
+        <!-- Khu vực nhập số gram và thêm món -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp">
+
+            <EditText
+                android:id="@+id/edtGramInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/nhap_so_gram"
+                android:inputType="number"
+                android:padding="12dp"
+                android:background="@drawable/bg_edittext"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/them_vao"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/primary"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
 
     </LinearLayout>
 </ScrollView>

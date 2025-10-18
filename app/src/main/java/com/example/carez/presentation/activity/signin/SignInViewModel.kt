@@ -7,6 +7,7 @@ import com.example.carez.domain.model.User
 import com.example.carez.domain.usecase.InsertUserUseCase
 import com.example.carez.domain.usecase.SignInWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.SignInWithGoogleUseCase
+import com.example.carez.presentation.state.SignInState
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

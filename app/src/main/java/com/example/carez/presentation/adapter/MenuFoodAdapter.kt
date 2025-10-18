@@ -1,4 +1,4 @@
-package com.example.carez.presentation.fragment.menu
+package com.example.carez.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

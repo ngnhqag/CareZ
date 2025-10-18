@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillEnabled="true"
+    android:fillAfter="true"
+    android:interpolator="@android:interpolator/fast_out_linear_in">
+
+    <!-- Trượt xuống mượt -->
+    <translate
+        android:duration="200"
+        android:fromYDelta="0%"
+        android:toYDelta="40%" />
+
+    <!-- Co nhẹ lại khi biến mất -->
+    <scale
+        android:duration="200"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:fromXScale="1"
+        android:fromYScale="1"
+        android:toXScale="0.8"
+        android:toYScale="0.8" />
+
+    <!-- Mờ dần đi -->
+    <alpha
+        android:duration="150"
+        android:fromAlpha="1"
+        android:toAlpha="0" />
+
+</set>

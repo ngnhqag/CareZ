@@ -24,6 +24,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".presentation.activity.todaylog.TodayLogActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".presentation.activity.signin.SignInActivity"
             android:exported="false" />
         <activity
@@ -35,6 +44,9 @@
         <activity
             android:name=".presentation.activity.signup.SignUpActivity"
             android:exported="true" />
+        <activity
+            android:name=".presentation.activity.fooddetail.FoodDetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
