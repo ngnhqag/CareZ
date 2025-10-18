@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fillAfter="true">
+    android:fillEnabled="true"
+    android:fillAfter="true"
+    android:interpolator="@android:interpolator/fast_out_slow_in">
 
+    <!-- Trượt lên mượt mà -->
     <translate
-        android:duration="300"
-        android:fromYDelta="100%"
+        android:duration="250"
+        android:fromYDelta="40%"
         android:toYDelta="0%" />
+
+    <!-- Nảy nhẹ khi xuất hiện -->
     <scale
+        android:duration="250"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:toXScale="0.8"
-        android:toYScale="0.8" />
+        android:fromXScale="0.8"
+        android:fromYScale="0.8"
+        android:toXScale="1"
+        android:toYScale="1" />
+
+    <!-- Mờ dần vào -->
     <alpha
-        android:duration="800"
+        android:duration="200"
         android:fromAlpha="0"
         android:toAlpha="1" />
 

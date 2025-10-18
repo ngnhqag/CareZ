@@ -32,12 +32,109 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtView" >
+        app:layout_constraintTop_toBottomOf="@id/txtView" />
 
-    </FrameLayout>
+    <!-- Lớp phủ mờ nền (blur) -->
+    <View
+        android:id="@+id/overlayBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#80000000"
+        android:alpha="0"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/frameLayout" />
 
-    <!-- Nút Floating Action Button (đè lên giữa BottomNavigationView) -->
+    <!-- Nhóm FAB -->
+    <LinearLayout
+        android:id="@+id/layoutFabGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end"
+        android:background="@drawable/bg_fab_line"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toTopOf="@id/fABAdd"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <LinearLayout
+            android:id="@+id/layoutDoExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fABDoExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tập thể dục"
+                app:icon="@drawable/ic_doexercise"
+                app:iconPadding="8dp"
+                app:iconGravity="start"
+                app:iconTint="@android:color/white"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/teal_700"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="invisible"
+                android:elevation="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutAddMeal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fABAddMeal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thêm bữa ăn"
+                app:icon="@drawable/ic_addmeal"
+                app:iconPadding="8dp"
+                app:iconGravity="start"
+                app:iconTint="@android:color/white"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/teal_700"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="invisible"
+                android:elevation="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDrinkWater"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fABDrinkWater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Uống nước"
+                app:icon="@drawable/ic_drinkwater"
+                app:iconPadding="8dp"
+                app:iconGravity="start"
+                app:iconTint="@android:color/white"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/teal_700"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="invisible"
+                android:elevation="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Nút Add -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fABAdd"
         android:layout_width="wrap_content"
@@ -54,64 +151,14 @@
         android:backgroundTint="@color/white"
         android:contentDescription="@string/them_hoat_dong" />
 
-    <!-- Thanh Bottom Navigation -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fABDrinkWater"
-        android:layout_width="wrap_content"
-        android:layout_height="532dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintBottom_toTopOf="@+id/fABAdd"
-        app:layout_constraintEnd_toEndOf="@+id/fABAdd"
-        app:srcCompat="@drawable/ic_drinkwater"
-        android:layout_marginBottom="10dp"
-        android:elevation="10dp"
-        android:tint="@color/white"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/uong_nuoc"
-        android:visibility="invisible"/>/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fABAddMeal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintBottom_toTopOf="@+id/fABDrinkWater"
-        app:layout_constraintEnd_toEndOf="@+id/fABDrinkWater"
-        app:srcCompat="@drawable/ic_addmeal"
-        android:layout_marginBottom="10dp"
-        android:elevation="10dp"
-        android:tint="@color/white"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/them_bua_an"
-        android:visibility="invisible"/>/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fABDoExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintBottom_toTopOf="@+id/fABAddMeal"
-        app:layout_constraintEnd_toEndOf="@+id/fABAddMeal"
-        app:srcCompat="@drawable/ic_doexercise"
-        android:layout_marginBottom="10dp"
-        android:elevation="10dp"
-        android:tint="@color/white"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/them_luyen_tap"
-        android:visibility="invisible"/>
-
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        android:elevation="10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
