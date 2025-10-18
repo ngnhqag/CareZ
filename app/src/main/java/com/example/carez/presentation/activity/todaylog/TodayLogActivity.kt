@@ -20,10 +20,6 @@ class TodayLogActivity : AppCompatActivity() {
 
         // Gắn adapter cho RecyclerView sau này
 
-        // 👉 Thêm phần xử lý khi bấm nút FloatingActionButton
-        binding.fabAddActivity.setOnClickListener {
-            showAddActivityDialog()
-        }
     }
 
     private fun showAddActivityDialog() {

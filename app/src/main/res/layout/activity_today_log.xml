@@ -47,17 +47,5 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <!-- Floating Action Button -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="24dp"
-        android:contentDescription="Thêm hoạt động"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:tint="@android:color/white"
-        android:backgroundTint="@color/primary" />
 
 </RelativeLayout>

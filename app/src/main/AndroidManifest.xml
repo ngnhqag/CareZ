@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CareZ"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.activity.todaylog.TodayLogActivity"
+            android:name=".presentation.activity.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.activity.main.MainActivity"
+            android:name=".presentation.activity.todaylog.TodayLogActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -72,4 +72,11 @@
     <!-- FragmentHome -->
     <string name="nhat_ky_hom_nay">Nhật ký hôm nay</string>
 
+    <!-- ActivityMain -->
+    <string name="trang_chu">Trang Chủ</string>
+    <string name="them_hoat_dong">Thêm Hoạt Động</string>
+    <string name="them_luyen_tap">Thêm Luyện Tập</string>
+    <string name="them_bua_an">Thêm Bữa Ăn</string>
+    <string name="uong_nuoc">Uống Nước</string>
+
 </resources>
