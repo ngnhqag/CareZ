@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="primary">#1F41BB</color>
-    <color name="background">#FAFAFA</color>   <!-- màu nền nhẹ -->
-    <color name="gray">#808080</color>         <!-- chữ mô tả -->
-        <color name="teal_700">#018786</color>
-        <color name="red">#F05B5A</color>
-
+    <color name="black">#000000</color>
+    <color name="white">#E2DFDF</color>
+    <color name="primary">#1B1637</color>
+    <color name="secondary">#3C2762</color>
+    <color name="background">#FAFAFA</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="gray_light">#BDBDBD</color>
+    <color name="red">#F05B5A</color>
+    <color name="blue">#1F41BB</color>
+    <color name="teal_700">#018786</color>
+    <color name="blue_soft">#5A6FF1</color>
+    <color name="blue_light">#758BFD</color>
+        <color name="text_white_soft">#F2F2F2</color>
 </resources>
