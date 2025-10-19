@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.carez.databinding.FragmentHomeBinding
+import com.example.carez.presentation.activity.todaylog.TodayLogActivity
 
 class HomeFragment : Fragment() {
 
@@ -23,7 +24,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupListener()
 
+    }
+
+    private fun setupListener() {
+        binding.btnTodayLog.setOnClickListener {
+            TodayLogActivity.onStart(requireContext())
+        }
     }
 
     override fun onDestroyView() {

@@ -17,5 +17,6 @@ data class Food(
     val salt: Int,
     val water: Int,
     val localPath: String? = null,
-    val remoteUrl: String? = null
+    val remoteUrl: String? = null,
+    val isDefault: Boolean = false
 ) : Parcelable

@@ -1,14 +1,24 @@
 package com.example.carez.presentation.activity.todaylog
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.carez.databinding.ActivityTodayLogBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.example.carez.R
+import com.example.carez.presentation.activity.main.MainActivity
 
 class TodayLogActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTodayLogBinding
+
+    companion object {
+        fun onStart(context: Context) {
+            val intent = Intent(context, TodayLogActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,24 +30,5 @@ class TodayLogActivity : AppCompatActivity() {
 
         // Gắn adapter cho RecyclerView sau này
 
-    }
-
-    private fun showAddActivityDialog() {
-        val options = arrayOf("🍽️ Ghi lại bữa ăn", "🏋️ Ghi lại tập luyện")
-
-        AlertDialog.Builder(this)
-            .setTitle("Thêm hoạt động")
-            .setItems(options) { _, which ->
-                when (which) {
-                    0 -> {
-                        // TODO: Chuyển sang màn hình ghi lại bữa ăn
-                    }
-                    1 -> {
-                        // TODO: Chuyển sang màn hình ghi lại tập luyện
-                    }
-                }
-            }
-            .setNegativeButton("Hủy", null)
-            .show()
     }
 }

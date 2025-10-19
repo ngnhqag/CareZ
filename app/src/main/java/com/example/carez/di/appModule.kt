@@ -1,6 +1,7 @@
 package com.example.carez.di
 
 import androidx.room.Room
+import com.example.carez.data.FoodAssetDataSource
 import com.example.carez.data.local.LocalDatabase
 import com.example.carez.data.local.datasource.UserLocalDataSource
 import com.example.carez.data.local.datasource.UserLocalDataSourceImpl
@@ -34,6 +35,7 @@ import com.example.carez.presentation.activity.userinfo.UserInfoViewModel
 import com.example.carez.presentation.fragment.ProgressViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -46,6 +48,9 @@ val appModule = module {
     single { Room.databaseBuilder(get(), LocalDatabase::class.java, "carez.db").build() }
     single { get<LocalDatabase>().userDao() }
 
+    //assets
+    single { FoodAssetDataSource(androidContext()) }
+
     // DataSource
     single<GoogleAuthDataSource> { GoogleAuthDataSourceImpl() }
     single<UserLocalDataSource> { UserLocalDataSourceImpl(get()) }
@@ -54,7 +59,7 @@ val appModule = module {
 
     single<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
     single<ProgressRepository> { FakeProgressRepository() }
-    single< FoodRepository> { FoodRepositoryImpl() }
+    single< FoodRepository> { FoodRepositoryImpl(get()) }
 
     // UseCase
     factory { SignInWithGoogleUseCase(get()) }
