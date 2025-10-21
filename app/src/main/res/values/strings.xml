@@ -1,6 +1,82 @@
 <resources>
-    <string name="app_name">CareZ</string>
     <string name="web_client_id">398143061068-o6sqdcgl53cr1lt3i16am3qgasehkttv.apps.googleusercontent.com</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">CareZ</string>
+    <!-- Nutrition -->
+    <string name="chat_beo">Chất béo</string>
+    <string name="chat_xo">Chất xơ</string>
+    <string name="protein">Protein</string>
+    <string name="carb">Carbohydrate</string>
+    <string name="water">Nước</string>
+    <string name="salt">Muối</string>
+
+    <!-- Nutrition values -->
+    <string name="value_chat_beo">20/50 g</string>
+    <string name="value_chat_beoinfo">20 g</string>
+    <string name="value_chat_xo">10/25 g</string>
+    <string name="value_protein">30/100 g</string>
+    <string name="value_carb">150/300 g</string>
+    <string name="value_water">1000/2000 ml</string>
+    <string name="value_salt">3/6 g</string>
+    <string name="value_comrang">50g · 120 calo</string>
+    <string name="value_calo_progress">500/2000 calo</string>
+
+    <!-- Goal -->
+    <string name="muc_tieu_calo">Mục tiêu calo</string>
+    <string name="calo_can_nap">Calo cần nạp: 1500</string>
+    <string name="tap_luyen">Tập luyện</string>
+
+    <!-- Train -->
+    <string name="chay_bo">Chạy bộ</string>
+    <string name="dap_xe">Đạp xe</string>
+    <string name="cau_long">Cầu lông</string>
+    <string name="pickleball">Pickleball</string>
+    <string name="tap_gym">Tập gym</string>
+    <string name="boi_loi">Bơi lội</string>
+
+    <!-- Food -->
+    <string name="com_rang">Cơm Rang Trứng</string>
+
+    <!-- TabLayout -->
+    <string name="do_an_nhanh">Đồ ăn nhanh</string>
+    <string name="do_an_vat">Đồ ăn vặt</string>
+    <string name="mon_nau_chin">Món nấu chín</string>
+    <string name="mon_chay">Món chay</string>
+    <string name="thuc_pham_tuoi_song">Thực phẩm tươi sống</string>
+    <string name="do_uong">Đồ uống</string>
+    <string name="da_them">Đã thêm</string>
+
+    <string name="de_xuat_mon_an">Đề xuất món ăn</string>
+
+    <!-- TabProfile -->
+    <string name="tuoi">25 tuổi</string>
+    <string name="chieu_cao">171 cm</string>
+    <string name="can_nang">60 kg</string>
+    <string name="dang_xuat">Đăng Xuất</string>
+
+    <!-- contentDescription -->
+    <string name="calories_icon">Calories icon</string>
+    <string name="food_image">Food image</string>
+    <string name="protein_icon">Protein icon</string>
+    <string name="lipid_icon">Lipid icon</string>
+    <string name="fiber_icon">Fiber icon</string>
+    <string name="sugar_icon">Sugar icon</string>
+    <string name="salt_icon">Salt icon</string>
+
+    <!-- FoodDetail -->
+    <string name="sua_mon">Sửa Món</string>
+    <string name="xoa_mon">Xoá Món</string>
+    <string name="them_vao">Thêm vào</string>
+    <string name="nhap_so_gram">Nhập số gram</string>
+    <string name="back">Back</string>
+
+    <!-- FragmentHome -->
+    <string name="nhat_ky_hom_nay">Nhật ký hôm nay</string>
+
+    <!-- ActivityMain -->
+    <string name="trang_chu">Trang Chủ</string>
+    <string name="them_hoat_dong">Thêm Hoạt Động</string>
+    <string name="them_luyen_tap">Thêm Luyện Tập</string>
+    <string name="them_bua_an">Thêm Bữa Ăn</string>
+    <string name="uong_nuoc">Uống Nước</string>
+
 </resources>

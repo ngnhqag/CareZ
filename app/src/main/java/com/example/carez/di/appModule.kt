@@ -1,6 +1,7 @@
 package com.example.carez.di
 
 import androidx.room.Room
+import com.example.carez.data.FoodAssetDataSource
 import com.example.carez.data.local.LocalDatabase
 import com.example.carez.data.local.datasource.UserLocalDataSource
 import com.example.carez.data.local.datasource.UserLocalDataSourceImpl
@@ -8,20 +9,30 @@ import com.example.carez.data.remote.datasource.GoogleAuthDataSource
 import com.example.carez.data.remote.datasource.GoogleAuthDataSourceImpl
 import com.example.carez.data.remote.datasource.UserRemoteDataSource
 import com.example.carez.data.remote.datasource.UserRemoteDataSourceImpl
+import com.example.carez.data.repository.FoodRepositoryImpl
 import com.example.carez.data.repository.UserRepositoryImpl
+import com.example.carez.data.repository.fake.FakeProgressRepository
+import com.example.carez.domain.repository.FoodRepository
+import com.example.carez.domain.repository.ProgressRepository
 import com.example.carez.domain.repository.UserRepository
 import com.example.carez.domain.usecase.CheckSignInUseCase
 import com.example.carez.domain.usecase.CheckUserInfoUseCase
+import com.example.carez.domain.usecase.GetAverageProgressUseCase
+import com.example.carez.domain.usecase.GetDailyProgressUseCase
+import com.example.carez.domain.usecase.GetFoodsByCategoryUseCase
+import com.example.carez.domain.usecase.GetMonthlyProgressUseCase
 import com.example.carez.domain.usecase.InsertUserUseCase
 import com.example.carez.domain.usecase.SignInWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.SignInWithGoogleUseCase
 import com.example.carez.domain.usecase.SignOutUseCase
 import com.example.carez.domain.usecase.SignUpWithEmailAndPasswordUseCase
 import com.example.carez.domain.usecase.ValidateSignUpInputUseCase
-import com.example.carez.presentation.activity.main.MainViewModel
+import com.example.carez.presentation.activity.fooddetail.MenuFoodViewModel
 import com.example.carez.presentation.activity.signin.SignInViewModel
 import com.example.carez.presentation.activity.signup.SignUpViewModel
 import com.example.carez.presentation.activity.splash.SplashViewModel
+import com.example.carez.presentation.activity.userinfo.UserInfoViewModel
+import com.example.carez.presentation.fragment.ProgressViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.android.ext.koin.androidContext
@@ -37,6 +48,9 @@ val appModule = module {
     single { Room.databaseBuilder(get(), LocalDatabase::class.java, "carez.db").build() }
     single { get<LocalDatabase>().userDao() }
 
+    //assets
+    single { FoodAssetDataSource(androidContext()) }
+
     // DataSource
     single<GoogleAuthDataSource> { GoogleAuthDataSourceImpl() }
     single<UserLocalDataSource> { UserLocalDataSourceImpl(get()) }
@@ -44,6 +58,8 @@ val appModule = module {
     // Repository
 
     single<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
+    single<ProgressRepository> { FakeProgressRepository() }
+    single< FoodRepository> { FoodRepositoryImpl(get()) }
 
     // UseCase
     factory { SignInWithGoogleUseCase(get()) }
@@ -54,6 +70,10 @@ val appModule = module {
     factory { SignInWithEmailAndPasswordUseCase(get()) }
     factory { ValidateSignUpInputUseCase() }
     factory { CheckUserInfoUseCase(get()) }
+    factory { GetDailyProgressUseCase(get()) }
+    factory { GetMonthlyProgressUseCase(get()) }
+    factory { GetAverageProgressUseCase() }
+    factory { GetFoodsByCategoryUseCase(get()) }
 
 
     // ViewModel
@@ -65,8 +85,10 @@ val appModule = module {
             firebaseAuth            = get()
         )
     }
-    viewModel { MainViewModel(get()) }
+//    viewModel { MainViewModel(get()) }
     viewModel { SplashViewModel(get(),get(),get()) }
     viewModel { SignUpViewModel(get(),get()) }
-
+    viewModel { UserInfoViewModel(get(), get()) }
+    viewModel { ProgressViewModel(get(), get()) }
+    viewModel { MenuFoodViewModel(get()) }
 }

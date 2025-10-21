@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.carez.R
-import com.example.carez.presentation.activity.UserInfoActivity
+import com.example.carez.presentation.activity.userinfo.UserInfoActivity
 import com.example.carez.presentation.activity.main.MainActivity
 import com.example.carez.presentation.activity.signin.SignInActivity
 import com.google.firebase.auth.FirebaseAuth

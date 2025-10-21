@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Trang Chủ" />
+
+    <item
+        android:id="@+id/nav_menu"
+        android:icon="@drawable/ic_menu"
+        android:title="Thực Đơn" />
+
+    <item
+        android:id="@+id/empty"
+        android:enabled="false"
+        android:icon="@drawable/nav_space"
+        android:title="" />
+
+    <item
+        android:id="@+id/nav_progress"
+        android:icon="@drawable/ic_progess"
+        android:title="Tiến Trình" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Tài Khoản" />
+</menu>
