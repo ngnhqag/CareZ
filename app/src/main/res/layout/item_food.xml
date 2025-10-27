@@ -15,9 +15,9 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgFood"
-            android:layout_width="150dp"
+            android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/img_comrang"
@@ -29,7 +29,7 @@
             android:id="@+id/layoutInfoFood"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:orientation="vertical"
             android:layout_marginStart="10dp">
 
@@ -51,7 +51,7 @@
 
             <LinearLayout
                 android:id="@+id/layoutInfoNutrition"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="7dp">

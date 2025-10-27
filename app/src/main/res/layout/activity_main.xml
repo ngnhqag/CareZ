@@ -57,7 +57,6 @@
         android:background="@drawable/bg_fab_line"
         android:padding="8dp"
         android:visibility="gone"
-        android:elevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/fABAdd"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -72,17 +71,18 @@
                 android:id="@+id/fABDoExercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tập thể dục"
+                android:text="@string/tap_the_duc"
                 app:icon="@drawable/ic_doexercise"
                 app:iconPadding="8dp"
-                app:iconGravity="start"
-                app:iconTint="@android:color/white"
-                android:textColor="@android:color/white"
-                app:backgroundTint="@color/teal_700"
+                app:iconGravity="textStart"
+                android:gravity="start|center_vertical"
+                app:iconTint="@android:color/black"
+                android:textColor="@android:color/black"
+                app:backgroundTint="@color/pale_white"
+                android:stateListAnimator="@null"
                 android:clickable="true"
                 android:focusable="true"
-                android:visibility="invisible"
-                android:elevation="8dp" />
+                android:visibility="invisible" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,17 +96,18 @@
                 android:id="@+id/fABAddMeal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thêm bữa ăn"
+                android:text="@string/them_bua_an"
                 app:icon="@drawable/ic_addmeal"
                 app:iconPadding="8dp"
-                app:iconGravity="start"
-                app:iconTint="@android:color/white"
-                android:textColor="@android:color/white"
-                app:backgroundTint="@color/teal_700"
+                app:iconGravity="textStart"
+                android:gravity="start|center_vertical"
+                app:iconTint="@android:color/black"
+                android:textColor="@android:color/black"
+                app:backgroundTint="@color/pale_white"
                 android:clickable="true"
+                android:stateListAnimator="@null"
                 android:focusable="true"
-                android:visibility="invisible"
-                android:elevation="8dp" />
+                android:visibility="invisible" />
         </LinearLayout>
 
         <LinearLayout
@@ -120,17 +121,18 @@
                 android:id="@+id/fABDrinkWater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Uống nước"
+                android:text="@string/uong_nuoc"
                 app:icon="@drawable/ic_drinkwater"
                 app:iconPadding="8dp"
-                app:iconGravity="start"
-                app:iconTint="@android:color/white"
-                android:textColor="@android:color/white"
-                app:backgroundTint="@color/teal_700"
+                app:iconGravity="textStart"
+                android:gravity="start|center_vertical"
+                app:iconTint="@android:color/black"
+                android:textColor="@android:color/black"
+                app:backgroundTint="@color/pale_white"
                 android:clickable="true"
+                android:stateListAnimator="@null"
                 android:focusable="true"
-                android:visibility="invisible"
-                android:elevation="8dp" />
+                android:visibility="invisible" />
         </LinearLayout>
     </LinearLayout>
 

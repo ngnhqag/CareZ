@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragment.main.ProgressFragment"
+    tools:context=".presentation.fragment.progress.ProgressFragment"
     android:background="#F5F5F5">
 
     <!-- Thẻ card chứa vòng tròn và kcal -->
