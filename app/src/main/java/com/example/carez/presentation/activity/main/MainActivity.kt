@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.carez.R
 import com.example.carez.databinding.ActivityMainBinding
-import com.example.carez.presentation.fragment.main.ProgressFragment
+import com.example.carez.presentation.fragment.progress.ProgressFragment
 import com.example.carez.presentation.fragment.main.HomeFragment
 import com.example.carez.presentation.fragment.menu.MenuFragment
 import com.example.carez.presentation.fragment.main.ProfileFragment
