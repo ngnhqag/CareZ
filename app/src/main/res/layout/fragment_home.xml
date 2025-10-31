@@ -277,6 +277,7 @@
 
             <!-- Ô 1: Chạy bộ -->
             <LinearLayout
+                android:id="@+id/layoutRunning"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -301,6 +302,7 @@
 
             <!-- Ô 2: Đạp xe -->
             <LinearLayout
+                android:id="@+id/layoutBicycle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -325,6 +327,7 @@
 
             <!-- Ô 3: Cầu lông -->
             <LinearLayout
+                android:id="@+id/layoutBadminton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -349,6 +352,7 @@
 
             <!-- Ô 4: Pickleball -->
             <LinearLayout
+                android:id="@+id/layoutPickleball"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -373,6 +377,7 @@
 
             <!-- Ô 5: Gym -->
             <LinearLayout
+                android:id="@+id/layoutGym"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -397,6 +402,7 @@
 
             <!-- Ô 6: Bơi lội -->
             <LinearLayout
+                android:id="@+id/layoutSwimming"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"

@@ -17,7 +17,7 @@
         android:background="@android:color/transparent"
         android:contentDescription="Back"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/back"
+        app:srcCompat="@drawable/ic_back"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
