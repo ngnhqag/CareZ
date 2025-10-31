@@ -79,4 +79,15 @@
     <string name="them_bua_an">Thêm Bữa Ăn</string>
     <string name="uong_nuoc">Uống Nước</string>
 
+    <!-- ActivityExercise -->
+    <string name="luu">Lưu</string>
+    <string name="khoang_cach">Khoảng Cách</string>
+    <string name="_0">0</string>
+    <string name="km">km</string>
+    <string name="thoi_gian">Thời gian:</string>
+    <string name="phut">phút</string>
+    <string name="calo_tieu_thu">Calo tiêu thụ:</string>
+    <string name="kcal">kcal</string>
+    <string name="muc_do">Mức Độ</string>
+    <string name="nghiep_du">Nghiệp Dư ></string>
 </resources>

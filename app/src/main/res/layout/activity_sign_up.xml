@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/white"
     tools:context=".presentation.activity.signup.SignUpActivity">
 
     <!-- Tiêu đề trên cùng -->
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="CareZ Logo"
-        app:srcCompat="@drawable/newcarez"
+        app:srcCompat="@drawable/img_logo"
         app:layout_constraintTop_toBottomOf="@id/txtcareYourHealth"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -56,7 +56,7 @@
         android:hint="Nhập email"
         android:inputType="textEmailAddress"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/white"
+        android:textColor="#333333"
         android:textColorHint="#9CA3AF"
         android:paddingStart="14dp"
         android:paddingEnd="14dp"
@@ -75,7 +75,7 @@
         android:hint="Nhập mật khẩu"
         android:inputType="textPassword"
         android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/white"
+        android:textColor="#333333"
         android:textColorHint="#9CA3AF"
         android:paddingStart="14dp"
         android:paddingEnd="14dp"
@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đã có tài khoản? Đăng nhập"
-        android:textColor="@color/white"
+        android:textColor="@color/primary"
         android:textSize="14sp"
         android:fontFamily="@font/poppins_medium"
         app:layout_constraintTop_toBottomOf="@id/btnSignUp"

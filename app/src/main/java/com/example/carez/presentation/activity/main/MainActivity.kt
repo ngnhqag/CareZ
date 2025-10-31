@@ -6,6 +6,7 @@ import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -46,6 +47,8 @@ class MainActivity : AppCompatActivity() {
 
         setupListener()
         onAddButtonClicked()
+        setupFabItemClicks()
+        closeFabMenu()
 
         if (savedInstanceState == null) {
             replaceFragment(HomeFragment())
@@ -53,9 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         // Tắt menu khi chạm nền mờ
         binding.overlayBackground.setOnClickListener {
-            setVisibility(false)
-            setAnimation(false)
-            clicked = false
+            closeFabMenu()
         }
     }
 
@@ -129,9 +130,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             // Khi người dùng chọn item mới → tắt menu FAB nếu đang mở
             if (clicked) {
-                setVisibility(false)
-                setAnimation(false)
-                clicked = false
+                closeFabMenu()
             }
 
             when (item.itemId) {
@@ -149,5 +148,26 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, fragment)
             .commit()
+    }
+
+    private fun setupFabItemClicks() {
+        binding.fABDoExercise.setOnClickListener {
+
+        }
+
+        binding.fABAddMeal.setOnClickListener {
+            replaceFragment(MenuFragment())
+            closeFabMenu()
+        }
+
+        binding.fABDrinkWater.setOnClickListener {
+
+        }
+    }
+
+    private fun closeFabMenu() {
+        setVisibility(false)
+        setAnimation(false)
+        clicked = false
     }
 }

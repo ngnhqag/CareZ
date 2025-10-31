@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/uong_nuoc"
+        android:textColor="#374151"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="30sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Water Counter Layout -->
+    <LinearLayout
+        android:id="@+id/layoutDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Subtract Button -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnSubtract"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_subtract"
+            android:background="@drawable/bg_button_subtract"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="center"
+            android:contentDescription="Trừ nước"
+            app:shapeAppearanceOverlay="@style/RoundedButton" />
+
+        <!-- Water Amount Display -->
+        <TextView
+            android:id="@+id/txtWater"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:text="0.0L"
+            android:textSize="35sp"
+            android:textColor="#374151"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Add Button -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnAdd"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_add2"
+            android:background="@drawable/bg_button_add"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Cộng nước"
+            android:scaleType="center"
+            app:shapeAppearanceOverlay="@style/RoundedButton" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignIn"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:text="Ghi lại"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/poppins_medium"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:background="@drawable/bg_btn_rounded_corner"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutDisplay" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
