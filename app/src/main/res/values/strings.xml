@@ -54,13 +54,14 @@
     <string name="dang_xuat">Đăng Xuất</string>
 
     <!-- contentDescription -->
-    <string name="calories_icon">Calories icon</string>
-    <string name="food_image">Food image</string>
-    <string name="protein_icon">Protein icon</string>
-    <string name="lipid_icon">Lipid icon</string>
-    <string name="fiber_icon">Fiber icon</string>
-    <string name="sugar_icon">Sugar icon</string>
-    <string name="salt_icon">Salt icon</string>
+    <string name="calories_icon">Calories Icon</string>
+    <string name="food_image">Food Image</string>
+    <string name="protein_icon">Protein Icon</string>
+    <string name="lipid_icon">Lipid Icon</string>
+    <string name="fiber_icon">Fiber Icon</string>
+    <string name="sugar_icon">Sugar Icon</string>
+    <string name="salt_icon">Salt Icon</string>
+    <string name="exercise_icon">Exercise Icon</string>
 
     <!-- FoodDetail -->
     <string name="sua_mon">Sửa Món</string>

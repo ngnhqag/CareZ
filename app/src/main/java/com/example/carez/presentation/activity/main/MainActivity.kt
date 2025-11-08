@@ -6,7 +6,6 @@ import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -15,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.carez.R
 import com.example.carez.databinding.ActivityMainBinding
+import com.example.carez.presentation.activity.exercise.InfoExerciseActivity
 import com.example.carez.presentation.fragment.progress.ProgressFragment
 import com.example.carez.presentation.fragment.main.HomeFragment
 import com.example.carez.presentation.fragment.menu.MenuFragment
@@ -152,7 +152,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupFabItemClicks() {
         binding.fABDoExercise.setOnClickListener {
-
+            InfoExerciseActivity.onStart(this@MainActivity)
         }
 
         binding.fABAddMeal.setOnClickListener {
