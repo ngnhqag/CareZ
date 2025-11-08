@@ -14,12 +14,6 @@ class MenuFoodAdapter(
 
     private val listFood = mutableListOf<Food>()
 
-    fun submitList(newList: List<Food>) {
-        listFood.clear()
-        listFood.addAll(newList)
-        notifyDataSetChanged()
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val binding = ItemFoodBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FoodViewHolder(binding)

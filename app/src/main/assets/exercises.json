@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "name": "Chạy bộ",
+    "localPath": "ic_running",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": false,
+    "metBeginner": 8.0,
+    "metPro": 12.0
+  },
+  {
+    "id": "2",
+    "name": "Đạp xe",
+    "localPath": "ic_cycling",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": false,
+    "metBeginner": 6.0,
+    "metPro": 10.0
+  },
+  {
+    "id": "3",
+    "name": "Cầu lông",
+    "localPath": "ic_badminton",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": true,
+    "metBeginner": 5.0,
+    "metPro": 8.0
+  },
+  {
+    "id": "4",
+    "name": "Pickleball",
+    "localPath": "ic_pickleball",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": true,
+    "metBeginner": 4.5,
+    "metPro": 7.5
+  },
+  {
+    "id": "5",
+    "name": "Tập gym",
+    "localPath": "ic_gym",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": true,
+    "metBeginner": 4.0,
+    "metPro": 7.0
+  },
+  {
+    "id": "6",
+    "name": "Bơi lội",
+    "localPath": "ic_swimming",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": true,
+    "metBeginner": 5.8,
+    "metPro": 9.0
+  },
+  {
+    "id": "7",
+    "name": "Yoga",
+    "localPath": "ic_yoga",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": true,
+    "metBeginner": 2.5,
+    "metPro": 5.0
+  },
+  {
+    "id": "8",
+    "name": "Bóng rổ",
+    "localPath": "ic_basketball",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": true,
+    "metBeginner": 6.5,
+    "metPro": 10.0
+  },
+  {
+    "id": "9",
+    "name": "Nhảy dây",
+    "localPath": "ic_jump_rope",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": true,
+    "metBeginner": 8.0,
+    "metPro": 12.0
+  },
+  {
+    "id": "10",
+    "name": "Leo núi",
+    "localPath": "ic_hiking",
+    "remoteUrl": null,
+    "isDefault": true,
+    "lvl": null,
+    "isLvlType": true,
+    "metBeginner": 6.0,
+    "metPro": 10.0
+  }
+]

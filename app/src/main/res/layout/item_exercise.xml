@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Icon hình ảnh -->
+        <ImageView
+            android:id="@+id/imgExerciseIcon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_running"
+            android:contentDescription="@string/exercise_icon"
+            android:scaleType="centerCrop"
+            android:padding="10dp" />
+
+        <!-- Thông tin bài tập -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:id="@+id/txtExerciseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chạy bộ"
+                android:textSize="17sp"
+                android:textColor="#212121"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtExerciseCalories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300–600 kcal/h"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Nút chọn -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSelectExercise"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Chọn"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="20dp"
+            app:backgroundTint="@color/blue_600"
+            android:minWidth="0dp"
+            android:paddingHorizontal="20dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
